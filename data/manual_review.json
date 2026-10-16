@@ -25,9 +25,9 @@
     "Solicitation ID": "",
     "Official Source URL": "",
     "Failure Stage": "Search/export",
-    "Failure Reason": "Locator.wait_for: Timeout 30000ms exceeded. Call log: - waiting for locator(\"body\") to be visible 64 × locator resolved to hidden <body class=\" seo-support\">…</body>",
+    "Failure Reason": "Pagination page body remained hidden",
     "Retry Status": "Pending manual review",
-    "Last Attempt": "2026-10-16T09:11:03-05:00"
+    "Last Attempt": "2026-10-16T09:30:57-05:00"
   },
   {
     "Date Detected": "2026-10-16T03:28:19-05:00",
