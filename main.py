@@ -777,6 +777,34 @@ def main():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
         page = browser.new_page(accept_downloads=True)
+        page.on(
+            "console",
+            lambda msg: print(
+                f"BROWSER CONSOLE [{msg.type}]: {msg.text}",
+                flush=True,
+            ),
+        )
+        page.on(
+            "pageerror",
+            lambda exc: print(
+                f"BROWSER JAVASCRIPT ERROR: {exc}",
+                flush=True,
+            ),
+        )
+        page.on(
+            "requestfailed",
+            lambda request: print(
+                f"REQUEST FAILED: {request.url} | {request.failure}",
+                flush=True,
+            ),
+        )
+        page.on(
+            "response",
+            lambda response: print(
+                f"HTTP ERROR: {response.status} {response.url}",
+                flush=True,
+            ) if response.status >= 400 else None,
+        )
         page.set_default_timeout(30000)
         page.set_default_navigation_timeout(60000)
         try:
