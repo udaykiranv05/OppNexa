@@ -5,7 +5,7 @@ import re
 import time
 from datetime import date, datetime
 from pathlib import Path
-from urllib.parse import quote, urlsplit, urlunsplit
+from urllib.parse import quote, urlsplit, urlunsplit, urljoin, parse_qs, urlencode
 from zoneinfo import ZoneInfo
 
 import gspread
@@ -254,13 +254,70 @@ def _page_reports_no_results(page):
     return any(phrase in text for phrase in no_result_phrases)
 
 
+def _solicitation_links(page):
+    """Collect detail links from the currently displayed ESBD results page."""
+    anchors = page.locator("#content a[href]").evaluate_all(
+        """els => els.map(a => ({
+            href: a.getAttribute('href') || '',
+            text: (a.innerText || a.textContent || '').trim()
+        }))"""
+    )
+    found = {}
+    for anchor in anchors:
+        href = clean(anchor.get("href", ""))
+        if not href:
+            continue
+        absolute = urljoin(page.url, href)
+        parts = urlsplit(absolute)
+        path = re.sub(r"/+$", "", parts.path)
+        match = re.fullmatch(r"/esbd/([^/]+)", path, re.I)
+        if not match:
+            continue
+        solicitation_id = clean(match.group(1))
+        if not solicitation_id or solicitation_id.lower() in {
+            "search", "solicitations", "awards", "pre-solicitations"
+        }:
+            continue
+        # Keep query/fragment off canonical detail URLs.
+        detail_url = urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
+        found[solicitation_id.lower()] = {
+            "solicitation_id": solicitation_id,
+            "title": clean(anchor.get("text", "")),
+            "url": detail_url,
+        }
+    return found
+
+
+def _page_number_urls(page):
+    """Find page numbers exposed by pagination links, without assuming a CSV export."""
+    numbers = {1}
+    anchors = page.locator("#content a[href]").evaluate_all(
+        """els => els.map(a => a.getAttribute('href') || '')"""
+    )
+    for href in anchors:
+        absolute = urljoin(page.url, href)
+        query = parse_qs(urlsplit(absolute).query)
+        for value in query.get("page", []):
+            try:
+                number = int(value)
+                if 1 <= number <= 100:
+                    numbers.add(number)
+            except (TypeError, ValueError):
+                pass
+    return sorted(numbers)
+
+
 def search_keyword(page, keyword, config):
+    """
+    Search ESBD and collect solicitation detail links from the HTML.
+    This deliberately does not rely on the CSV download button because the
+    site did not start a Playwright download in the GitHub Actions environment.
+    """
     base_url = config.get("search_url", "https://www.txsmartbuy.gov/esbd")
     page.goto(base_url, wait_until="domcontentloaded", timeout=60000)
-    page.locator("#content").wait_for(state="visible", timeout=30000)
-
-    # The site header has another Search box, so scope all selectors to #content.
     content = page.locator("#content")
+    content.wait_for(state="visible", timeout=30000)
+
     keyword_box = content.get_by_label(re.compile(r"^Keyword Search$", re.I))
     if keyword_box.count() != 1:
         keyword_box = content.locator(
@@ -291,73 +348,85 @@ def search_keyword(page, keyword, config):
             f"found {search_button.count()}"
         )
     search_button.click()
-
-    # Some pages update results asynchronously without a full navigation.
     try:
         page.wait_for_load_state("domcontentloaded", timeout=10000)
     except PlaywrightTimeoutError:
         pass
-    page.wait_for_timeout(2000)
+    page.wait_for_timeout(1800)
 
-    # An explicitly empty result is a successful search, not a scraper failure.
     if _page_reports_no_results(page):
-        print(f"{keyword}: 0 results (the ESBD page reported no matches)")
+        print(f"{keyword}: 0 results (ESBD explicitly reported no matches)")
         return []
 
-    export_button = content.get_by_role(
-        "button", name=re.compile(r"Export to CSV", re.I)
-    )
-    if export_button.count() != 1:
+    # The search URL usually contains page=1 and keyword=<term>. Use visible
+    # pagination links when present, and scrape each page's detail links.
+    current_parts = urlsplit(page.url)
+    current_query = parse_qs(current_parts.query, keep_blank_values=True)
+    page_numbers = _page_number_urls(page)
+    if not current_query.get("keyword"):
+        current_query["keyword"] = [keyword]
+    if not current_query.get("page"):
+        current_query["page"] = ["1"]
+
+    found = {}
+    for page_number in page_numbers:
+        query = {key: values[-1] if values else "" for key, values in current_query.items()}
+        query["page"] = str(page_number)
+        page_url = urlunsplit((
+            current_parts.scheme or "https",
+            current_parts.netloc or "www.txsmartbuy.gov",
+            current_parts.path or "/esbd",
+            urlencode(query),
+            "",
+        ))
+        if page.url != page_url:
+            page.goto(page_url, wait_until="domcontentloaded", timeout=60000)
+            page.locator("#content").wait_for(state="visible", timeout=30000)
+            page.wait_for_timeout(700)
+
         if _page_reports_no_results(page):
-            print(f"{keyword}: 0 results (the ESBD page reported no matches)")
+            continue
+
+        links = _solicitation_links(page)
+        for key, item in links.items():
+            found.setdefault(key, item)
+
+    # Some pages only reveal pagination after initial results render. If no
+    # detail links were found, distinguish an explicit empty search from a
+    # changed page layout or a website/network problem.
+    if not found:
+        if _page_reports_no_results(page):
+            print(f"{keyword}: 0 results (ESBD explicitly reported no matches)")
             return []
+        excerpt = clean(content.inner_text())[:1200]
         raise RuntimeError(
-            "Could not uniquely identify the Export to CSV button. "
-            f"Found {export_button.count()} buttons."
+            "No solicitation detail links were found and the page did not "
+            "explicitly report zero results. The ESBD layout or search may "
+            f"have changed. Current URL: {page.url}. Page excerpt: {excerpt}"
         )
 
-    # Do not assume every click produces a download. If the site explicitly
-    # reports zero results, treat that as an empty success; otherwise preserve
-    # a clear error so a broken export is not mistaken for zero opportunities.
-    try:
-        with page.expect_download(timeout=20000) as download_info:
-            export_button.click(timeout=15000)
-        download = download_info.value
-    except PlaywrightTimeoutError as exc:
-        if _page_reports_no_results(page):
-            print(f"{keyword}: 0 results (the ESBD page reported no matches)")
-            return []
-        raise RuntimeError(
-            "Clicked Export to CSV but the browser did not start a download. "
-            "The page did not explicitly report zero results, so this is "
-            "being logged as an export failure rather than a no-opportunity result. "
-            f"Current URL: {page.url}"
-        ) from exc
+    records = []
+    for item in found.values():
+        records.append({
+            "solicitation_id": item["solicitation_id"],
+            "title": item["title"],
+            "status": "",
+            "agency": "",
+            "agency_number": "",
+            "posting_date": "",
+            "due_date": "",
+            "due_time": "",
+            "opportunity_type": "",
+            "estimated_value": "",
+            "class_item_codes": "",
+            "description": "",
+            "url": item["url"],
+            "matched_keywords": [keyword],
+            "date_found": date.today().isoformat(),
+        })
 
-    safe_name = re.sub(r"[^a-z0-9]+", "-", keyword.lower()).strip("-")
-    export_path = DATA / f"esbd-export-{safe_name}.csv"
-    download.save_as(str(export_path))
-
-    with export_path.open("r", encoding="utf-8-sig", newline="") as handle:
-        rows = list(csv.DictReader(handle))
-
-    # A valid CSV with headers and zero data rows is also a successful empty result.
-    if not rows:
-        print(f"{keyword}: 0 CSV rows")
-        return []
-
-    available = {norm(key) for key in rows[0]}
-    if not available.intersection({
-        "solicitationid", "solicitationnumber",
-        "bidnumber", "id", "solicitationreferenceno",
-    }):
-        raise RuntimeError(
-            "CSV ID column not recognized. Found headers: "
-            + ", ".join(rows[0].keys())
-        )
-
-    print(f"{keyword}: {len(rows)} CSV rows")
-    return [parse_csv_record(row, keyword, base_url) for row in rows]
+    print(f"{keyword}: collected {len(records)} solicitation links from ESBD")
+    return records
 
 def extract_label(lines, *labels):
     wanted = {clean(label).lower().rstrip(":") for label in labels}
@@ -642,10 +711,9 @@ def main():
                         discovered[key]["matched_keywords"].append(keyword)
                 time.sleep(float(config.get("request_delay_seconds", 2)))
 
-            candidates = [
-                record for record in discovered.values()
-                if is_open(record, config)
-            ]
+            # Read each detail page BEFORE filtering by status/deadline.
+            # Search result cards may not expose those fields.
+            candidates = list(discovered.values())
             candidates.sort(key=lambda record: (
                 record_key(record) in history_by_key,
                 record.get("posting_date", ""),
@@ -653,14 +721,15 @@ def main():
             cap = int(config.get("max_details_per_run", 100))
             if len(candidates) > cap:
                 print(
-                    f"WARNING: {len(candidates)} candidates found; "
-                    f"processing {cap} details this run."
+                    f"WARNING: {len(candidates)} solicitation links found; "
+                    f"processing {cap} detail pages this run."
                 )
 
             for record in candidates[:cap]:
                 keyword = record["matched_keywords"][0]
                 enrich_detail(page, record, keyword, failures)
-                if is_open(record, config) and record.get("solicitation_id"):
+
+                if record.get("detail_read_ok") and is_open(record, config) and record.get("solicitation_id"):
                     key = record_key(record)
                     if key in history_by_key:
                         old = history_by_key[key]
