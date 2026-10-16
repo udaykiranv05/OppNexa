@@ -314,10 +314,10 @@ def search_keyword(page, keyword, config):
     site did not start a Playwright download in the GitHub Actions environment.
     """
     base_url = config.get("search_url", "https://www.txsmartbuy.gov/esbd")
-    page.goto(base_url, wait_until="domcontentloaded", timeout=60000)
+    page.goto(base_url, wait_until="domcontentloaded", timeout=120000)
     # ESBD pages may contain a hidden duplicate #content element from the
     # shopping layout. Use visible form controls instead of relying on that ID.
-    page.locator("body").wait_for(state="visible", timeout=30000)
+    page.locator("body").wait_for(state="visible", timeout=90000)
     keyword_candidates = page.locator(
         'input:visible[aria-label*="keyword" i], '
         'input:visible[placeholder*="keyword" i], '
@@ -338,20 +338,44 @@ def search_keyword(page, keyword, config):
 
     keyword_box = keyword_candidates.first
     keyword_box.fill(keyword)
-    search_buttons = page.get_by_role(
-        "button", name=re.compile(r"^Search$", re.I)
-    ).locator(":visible")
-    if search_buttons.count() != 1:
-        raise RuntimeError(
-            "Expected one visible ESBD Search button; "
-            f"found {search_buttons.count()}"
-        )
-    search_buttons.first.click()
+
+    # Do not search for a global button named "Search": the site can render
+    # hidden duplicate controls and custom submit controls. Prefer the submit
+    # control associated with this exact input's form; if it has no usable
+    # submit control, submit the keyword field with Enter.
+    submitted = False
     try:
-        page.wait_for_load_state("domcontentloaded", timeout=10000)
+        form = keyword_box.locator("xpath=ancestor::form[1]")
+        if form.count() > 0:
+            submit_controls = form.locator(
+                'button[type="submit"], input[type="submit"], '
+                'button:visible, input[type="button"]:visible, [role="button"]:visible'
+            )
+            visible_controls = []
+            for index in range(submit_controls.count()):
+                control = submit_controls.nth(index)
+                try:
+                    if control.is_visible() and re.search(
+                        r"search", clean(control.inner_text() or control.get_attribute("value") or control.get_attribute("aria-label") or ""), re.I
+                    ):
+                        visible_controls.append(control)
+                except Exception:
+                    continue
+            if len(visible_controls) == 1:
+                visible_controls[0].click(timeout=30000)
+                submitted = True
+    except Exception as exc:
+        print(f"INFO: Form-specific Search click unavailable for {keyword}: {exc}")
+
+    if not submitted:
+        keyword_box.press("Enter", timeout=30000)
+
+    try:
+        page.wait_for_load_state("domcontentloaded", timeout=30000)
     except PlaywrightTimeoutError:
         pass
-    page.wait_for_timeout(1800)
+    # Allow client-side result rendering on a slower ESBD response.
+    page.wait_for_timeout(5000)
 
     if _page_reports_no_results(page):
         print(f"{keyword}: 0 results (ESBD explicitly reported no matches)")
@@ -379,8 +403,8 @@ def search_keyword(page, keyword, config):
             "",
         ))
         if page.url != page_url:
-            page.goto(page_url, wait_until="domcontentloaded", timeout=60000)
-            page.locator("body").wait_for(state="visible", timeout=30000)
+            page.goto(page_url, wait_until="domcontentloaded", timeout=120000)
+            page.locator("body").wait_for(state="visible", timeout=90000)
             page.wait_for_timeout(700)
 
         if _page_reports_no_results(page):
@@ -456,7 +480,7 @@ def extract_description(lines):
 
 def enrich_detail(page, record, keyword, failures):
     try:
-        page.goto(record["url"], wait_until="domcontentloaded", timeout=60000)
+        page.goto(record["url"], wait_until="domcontentloaded", timeout=120000)
         page.wait_for_timeout(700)
         lines = page.locator("body").inner_text().splitlines()
 
@@ -683,6 +707,8 @@ def main():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
         page = browser.new_page(accept_downloads=True)
+        page.set_default_timeout(90000)
+        page.set_default_navigation_timeout(120000)
         try:
             for keyword in config["keywords"]:
                 try:
