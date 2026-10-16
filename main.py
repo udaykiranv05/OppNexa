@@ -271,9 +271,35 @@ def search_keyword(page, keyword, config):
     )
 
     # Use the public ESBD keyword search and CSV export.
+        # Find the Keyword Search input using its accessible attributes first.
     keyword_box = page.get_by_label(
-        re.compile("Keyword Search", re.I)
+        re.compile(r"Keyword Search", re.I)
     )
+
+    if keyword_box.count() == 0:
+        keyword_box = page.locator(
+            'input[aria-label*="keyword" i], '
+            'input[placeholder*="keyword" i], '
+            'input[name*="keyword" i], '
+            'input[id*="keyword" i]'
+        )
+
+    if keyword_box.count() != 1:
+        labels = page.locator("label").all_text_contents()
+        inputs = page.locator("input").evaluate_all(
+            """els => els.map(e => ({
+                id: e.id,
+                name: e.name,
+                placeholder: e.placeholder,
+                ariaLabel: e.getAttribute('aria-label'),
+                type: e.type
+            }))"""
+        )
+        raise RuntimeError(
+            "Could not uniquely identify ESBD Keyword Search input. "
+            f"Labels: {labels}; Inputs: {inputs}"
+        )
+
     keyword_box.fill(keyword)
 
     page.get_by_role(
