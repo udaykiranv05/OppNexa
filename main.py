@@ -330,6 +330,36 @@ def _page_number_urls(page):
     return sorted(numbers)
 
 
+def wait_for_esbd_app(page, timeout=30000, stage="page"):
+    """Wait for the actual ESBD application container, not merely <body>."""
+    try:
+        page.locator("#main").wait_for(state="visible", timeout=timeout)
+        return
+    except Exception as exc:
+        print(f"ESBD APP NOT VISIBLE during {stage}: {exc}", flush=True)
+        print(f"DEBUG URL [{stage}]: {page.url}", flush=True)
+        try:
+            print(f"DEBUG TITLE [{stage}]: {page.title()}", flush=True)
+            print(
+                f"DEBUG #main state [{stage}]: ",
+                page.locator("#main").evaluate(
+                    "el => ({display:getComputedStyle(el).display, visibility:getComputedStyle(el).visibility, height:el.getBoundingClientRect().height, html:el.outerHTML.slice(0,1200)})"
+                ) if page.locator("#main").count() else "#main not found",
+                flush=True,
+            )
+        except Exception as detail_exc:
+            print(f"DEBUG app diagnostics unavailable [{stage}]: {detail_exc}", flush=True)
+        try:
+            page.screenshot(path=f"esbd_debug_{re.sub(r'[^a-z0-9]+', '_', stage.lower())}.png", full_page=True, timeout=10000)
+            print(f"DEBUG screenshot saved for stage: {stage}", flush=True)
+        except Exception as shot_exc:
+            print(f"DEBUG screenshot failed [{stage}]: {shot_exc}", flush=True)
+        raise RuntimeError(
+            f"ESBD JavaScript application did not become visible during {stage}. "
+            "See browser console, pageerror, requestfailed, and HTTP ERROR logs."
+        ) from exc
+
+
 def search_keyword(page, keyword, config):
     """
     Search ESBD and collect solicitation detail links from the HTML.
@@ -353,32 +383,9 @@ def search_keyword(page, keyword, config):
     except Exception as title_error:
         print(f"DEBUG title error: {title_error}", flush=True)
 
-    # Diagnose the actual document before attempting to locate controls.
-    # A body element can exist in the DOM but be hidden by a shell/redirect.
-    body = page.locator("body")
-    try:
-        body.wait_for(state="visible", timeout=15000)
-    except Exception as body_error:
-        print(f"DEBUG body visibility error: {type(body_error).__name__}: {body_error}", flush=True)
-        try:
-            print("DEBUG body outerHTML:", body.evaluate("el => el.outerHTML.slice(0, 5000)"), flush=True)
-        except Exception as html_error:
-            print(f"DEBUG body HTML unavailable: {html_error}", flush=True)
-        try:
-            print("DEBUG visible inputs:", page.locator("input:visible").evaluate_all(
-                "els => els.map(e => ({id:e.id,name:e.name,placeholder:e.placeholder,type:e.type,ariaLabel:e.getAttribute('aria-label')}))"
-            ), flush=True)
-        except Exception as input_error:
-            print(f"DEBUG visible input inspection failed: {input_error}", flush=True)
-        try:
-            page.screenshot(path="esbd_debug.png", full_page=True, timeout=10000)
-            print("DEBUG screenshot saved: esbd_debug.png", flush=True)
-        except Exception as screenshot_error:
-            print(f"DEBUG screenshot failed: {screenshot_error}", flush=True)
-        raise RuntimeError(
-            "ESBD body remained hidden. Use DEBUG final URL, page title, body HTML, "
-            "and visible-input output to identify the actual response."
-        ) from body_error
+    # The <body> can be visible while the actual app is hidden. Wait for #main.
+    wait_for_esbd_app(page, timeout=45000, stage=f"initial page for {keyword}")
+
     keyword_candidates = page.locator(
         'input:visible[aria-label*="keyword" i], '
         'input:visible[placeholder*="keyword" i], '
@@ -435,54 +442,54 @@ def search_keyword(page, keyword, config):
         page.wait_for_load_state("domcontentloaded", timeout=30000)
     except PlaywrightTimeoutError:
         pass
-    # Allow client-side result rendering on a slower ESBD response.
-    page.wait_for_timeout(5000)
+    # Wait for client-rendered app and results; a fixed sleep alone is not enough.
+    wait_for_esbd_app(page, timeout=45000, stage=f"results for {keyword}")
+    page.wait_for_timeout(1500)
 
     if _page_reports_no_results(page):
         print(f"{keyword}: 0 results (ESBD explicitly reported no matches)")
         return []
 
-    # The search URL usually contains page=1 and keyword=<term>. Use visible
-    # pagination links when present, and scrape each page's detail links.
-    current_parts = urlsplit(page.url)
-    current_query = parse_qs(current_parts.query, keep_blank_values=True)
+    # Scrape the current results page first. For subsequent pages, click the
+    # visible pagination link rather than navigating directly to a URL: this
+    # site hides its application shell on direct query-string navigation until
+    # its client-side router initializes.
     page_numbers = _page_number_urls(page)
-    if not current_query.get("keyword"):
-        current_query["keyword"] = [keyword]
-    if not current_query.get("page"):
-        current_query["page"] = ["1"]
-
     found = {}
-    for page_number in page_numbers:
-        query = {key: values[-1] if values else "" for key, values in current_query.items()}
-        query["page"] = str(page_number)
-        page_url = urlunsplit((
-            current_parts.scheme or "https",
-            current_parts.netloc or "www.txsmartbuy.gov",
-            current_parts.path or "/esbd",
-            urlencode(query),
-            "",
-        ))
-        if page.url != page_url:
-            page.goto(page_url, wait_until="domcontentloaded", timeout=60000)
-            try:
-                page.locator("body").wait_for(state="visible", timeout=15000)
-            except Exception as body_error:
-                print(f"DEBUG pagination URL: {page.url}", flush=True)
-                print(f"DEBUG pagination title: {page.title()}", flush=True)
-                try:
-                    print("DEBUG pagination body HTML:", page.locator("body").evaluate("el => el.outerHTML.slice(0, 5000)"), flush=True)
-                except Exception as html_error:
-                    print(f"DEBUG pagination body HTML unavailable: {html_error}", flush=True)
-                raise RuntimeError("Pagination page body remained hidden") from body_error
-            page.wait_for_timeout(700)
 
+    def collect_current_page():
         if _page_reports_no_results(page):
-            continue
-
-        links = _solicitation_links(page)
-        for key, item in links.items():
+            return
+        for key, item in _solicitation_links(page).items():
             found.setdefault(key, item)
+
+    collect_current_page()
+    for page_number in [number for number in page_numbers if number != 1]:
+        if len(found) >= int(config.get("max_search_results_per_keyword", 100)):
+            print(f"INFO: Reached max_search_results_per_keyword for {keyword}", flush=True)
+            break
+        # Match a visible pagination anchor by its URL query parameter.
+        candidates = page.locator("body a[href]:visible")
+        target = None
+        for idx in range(candidates.count()):
+            link = candidates.nth(idx)
+            href = link.get_attribute("href") or ""
+            absolute = urljoin(page.url, href)
+            query = parse_qs(urlsplit(absolute).query)
+            if query.get("page", [""])[-1] == str(page_number):
+                target = link
+                break
+        if target is None:
+            print(f"INFO: Could not find visible pagination link for page {page_number}; stopping pagination", flush=True)
+            break
+        try:
+            target.click(timeout=15000)
+            wait_for_esbd_app(page, timeout=30000, stage=f"pagination page {page_number} for {keyword}")
+            page.wait_for_timeout(1200)
+            collect_current_page()
+        except Exception as pagination_error:
+            print(f"PAGINATION WARNING for {keyword}, page {page_number}: {pagination_error}", flush=True)
+            break
 
     # Some pages only reveal pagination after initial results render. If no
     # detail links were found, distinguish an explicit empty search from a
@@ -690,7 +697,7 @@ def sync_opportunities(spreadsheet, config, history):
 
     if additions:
         sheet.append_rows(additions, value_input_option="RAW")
-    print(f"Google Sheets: appended {len(additions)} new opportunities")
+    print(f"Google Sheets: appended {len(additions)} new opportunities", flush=True)
 
 
 def sync_manual_review(spreadsheet, config, failures):
@@ -756,7 +763,7 @@ def sync_manual_review(spreadsheet, config, failures):
 
     if additions:
         sheet.append_rows(additions, value_input_option="RAW")
-    print(f"Manual review: appended {len(additions)} new failure records")
+    print(f"Manual review: appended {len(additions)} new failure records", flush=True)
 
 
 def main():
@@ -821,8 +828,8 @@ def main():
                     sid = clean(record.get("solicitation_id", ""))
                     if not sid:
                         log_failure(
-                            failures, keyword, record, "CSV parsing",
-                            "CSV row had no recognized solicitation ID",
+                            failures, keyword, record, "Result parsing",
+                            "Collected result link had no recognized solicitation ID",
                         )
                         continue
                     key = record_key(record)
