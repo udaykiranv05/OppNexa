@@ -133,15 +133,44 @@ def accepted_statuses(config):
 
 
 def is_open(record, config):
+    """Strict check used to distinguish confirmed open records."""
     status = clean(record.get("status")).lower()
     accepted = accepted_statuses(config)
-    # If the CSV omits status, do not silently treat the record as open.
     if not status or status not in accepted:
         return False
     if config.get("exclude_expired", True):
         due = parse_date(record.get("due_date", ""))
         if due and due < datetime.now(CENTRAL_TZ).date():
             return False
+    return True
+
+
+def is_candidate_for_review(record, config):
+    """Keep verified open records and uncertain-status records for human review.
+
+    Explicitly closed/cancelled/awarded/withdrawn/expired opportunities are
+    excluded. Missing or unfamiliar statuses are retained as Investigate rather
+    than silently dropping every result when ESBD's labels differ from config.
+    Past deadlines are excluded when exclude_expired is enabled.
+    """
+    if not clean(record.get("solicitation_id")) or not clean(record.get("url")):
+        return False
+    if config.get("exclude_expired", True):
+        due = parse_date(record.get("due_date", ""))
+        if due and due < datetime.now(CENTRAL_TZ).date():
+            return False
+    status = clean(record.get("status")).lower()
+    if not status:
+        return True
+    if status in accepted_statuses(config):
+        return True
+    closed_terms = (
+        "closed", "cancelled", "canceled", "awarded", "withdrawn",
+        "expired", "terminated", "rejected", "completed",
+    )
+    if any(term in status for term in closed_terms):
+        return False
+    # A nonempty but unfamiliar status is retained for manual investigation.
     return True
 
 
@@ -613,6 +642,15 @@ def to_opportunity_row(record):
         "Estimated Value (if published)": record.get("estimated_value", ""),
         "Scope Summary": record.get("description", ""),
         "Mandatory Gate (Pass / Fail / Unknown)": "Unknown",
+        "Recommendation (Go / Investigate / No-Go)": (
+            "Go" if is_open(record, {"accepted_statuses": ["Posted", "Open"]})
+            else "Investigate"
+        ),
+        "Fit Rationale": (
+            "Status and eligibility should be verified against the official solicitation page."
+            if not clean(record.get("status"))
+            else f"Extracted ESBD status: {clean(record.get('status'))}. Review fit and requirements."
+        ),
     })
     for header in NEVER_AUTO_FILL:
         row[header] = ""
@@ -680,7 +718,7 @@ def sync_opportunities(spreadsheet, config, history):
 
     additions = []
     for record in history:
-        if not is_open(record, config):
+        if not is_candidate_for_review(record, config):
             continue
         row_dict = to_opportunity_row(record)
         sid = clean(record.get("solicitation_id")).lower()
@@ -865,7 +903,17 @@ def main():
                 keyword = record["matched_keywords"][0]
                 enrich_detail(page, record, keyword, failures)
 
-                if record.get("detail_read_ok") and is_open(record, config) and record.get("solicitation_id"):
+                print(
+                    "DETAIL CHECK:",
+                    f"ID={record.get('solicitation_id')}",
+                    f"OK={record.get('detail_read_ok')}",
+                    f"STATUS={record.get('status')!r}",
+                    f"DEADLINE={record.get('due_date')!r}",
+                    f"STRICT_OPEN={is_open(record, config)}",
+                    f"REVIEW_CANDIDATE={is_candidate_for_review(record, config)}",
+                    flush=True,
+                )
+                if record.get("detail_read_ok") and is_candidate_for_review(record, config) and record.get("solicitation_id"):
                     key = record_key(record)
                     if key in history_by_key:
                         old = history_by_key[key]
@@ -912,7 +960,12 @@ def main():
     sync_opportunities(spreadsheet, config, history)
     sync_manual_review(spreadsheet, config, failures)
 
-    print(f"Unique history records: {len(history)}", flush=True)
+    print(f"Unique history records saved locally: {len(history)}", flush=True)
+    print(
+        "Review candidates eligible for sheet sync: "
+        f"{sum(1 for item in history if is_candidate_for_review(item, config))}",
+        flush=True,
+    )
     print(f"Failure/manual-review records: {len(failures)}", flush=True)
     if search_failures:
         raise RuntimeError(
