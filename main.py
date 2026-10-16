@@ -26,7 +26,7 @@ MANUAL_HEADERS = [
     "Failure Stage", "Failure Reason", "Retry Status", "Last Attempt",
 ]
 
-HEADERS = [
+CORE_HEADERS = [
     "Opportunity ID", "Date Found", "State", "Agency", "Opportunity Title",
     "Solicitation / Reference No.", "Opportunity Type", "Service Category",
     "Official Source URL", "Published Date", "Deadline Date",
@@ -42,6 +42,17 @@ HEADERS = [
     "Risks / Gaps", "Next Action", "Last Verified Date", "Owner",
     "Review Status", "Reviewer Notes",
 ]
+# Extra ESBD detail fields are appended to the right of the original 35 columns.
+# This keeps existing sheets compatible while preserving the detailed source fields.
+DETAIL_HEADERS = [
+    "Stored At (UTC)", "Stored At (America/Chicago)", "Last Modified",
+    "Solicitation Status", "Contact Name", "Contact Number", "Contact Email",
+    "Bid Response Email", "Bid Response URL", "Posting Requirement",
+    "State Agency Procurement Certification", "Class/Item Codes",
+    "Highway Districts", "Zones", "Addendum Details", "Keyword Relevance",
+    "Relevance Notes", "Detail Extraction Status", "Source Page Title",
+]
+HEADERS = CORE_HEADERS + DETAIL_HEADERS
 
 # These six fields are intentionally never auto-filled.
 NEVER_AUTO_FILL = {
@@ -50,6 +61,7 @@ NEVER_AUTO_FILL = {
 }
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 CENTRAL_TZ = ZoneInfo("America/Chicago")
+UTC_TZ = ZoneInfo("UTC")
 
 
 def clean(value):
@@ -108,10 +120,13 @@ def persist_local_progress(history_by_key, failures):
         "Official Source URL": r.get("url", ""),
         "Matched Keywords": ", ".join(r.get("matched_keywords", [])),
         "Date Found": r.get("date_found", ""),
+        "Stored At (UTC)": r.get("stored_at_utc", ""),
+        "Stored At (America/Chicago)": r.get("stored_at_local", ""),
     } for r in history_now], [
         "Opportunity ID", "Opportunity Title", "Status", "Agency",
         "Published Date", "Deadline Date", "Official Source URL",
-        "Matched Keywords", "Date Found",
+        "Matched Keywords", "Date Found", "Stored At (UTC)",
+        "Stored At (America/Chicago)",
     ])
     save_json(FAILURES_JSON, failures)
     save_csv(FAILURES_CSV, failures, MANUAL_HEADERS)
@@ -282,6 +297,8 @@ def parse_csv_record(row, keyword, base_url):
         "url": url,
         "matched_keywords": [keyword],
         "date_found": date.today().isoformat(),
+        "stored_at_utc": datetime.now(UTC_TZ).replace(microsecond=0).isoformat(),
+        "stored_at_local": datetime.now(UTC_TZ).astimezone(CENTRAL_TZ).replace(microsecond=0).isoformat(),
     }
 
 
@@ -549,46 +566,114 @@ def search_keyword(page, keyword, config):
             "estimated_value": "",
             "class_item_codes": "",
             "description": "",
+            "contact_name": "", "contact_number": "", "contact_email": "",
+            "bid_response_email": "", "bid_response_url": "", "posting_requirement": "",
+            "procurement_certification": "", "last_modified": "", "highway_districts": "",
+            "zones": "", "addendum_details": "", "keyword_relevance": "Unverified / likely unrelated",
+            "relevance_notes": "Not yet checked against detail-page content.",
+            "detail_extraction_status": "Pending detail extraction", "source_page_title": "",
             "url": item["url"],
             "matched_keywords": [keyword],
             "date_found": date.today().isoformat(),
+            "stored_at_utc": datetime.now(UTC_TZ).replace(microsecond=0).isoformat(),
+            "stored_at_local": datetime.now(UTC_TZ).astimezone(CENTRAL_TZ).replace(microsecond=0).isoformat(),
         })
 
     print(f"{keyword}: collected {len(records)} solicitation links from ESBD", flush=True)
     return records
 
 def extract_label(lines, *labels):
+    """Extract a labelled value from ESBD's visible text, handling inline labels too."""
     wanted = {clean(label).lower().rstrip(":") for label in labels}
-    for index, line in enumerate(lines):
-        if clean(line).lower().rstrip(":") in wanted:
-            for following in lines[index + 1:]:
-                if clean(following):
-                    return clean(following)
+    # ESBD can render a label and value on one line or on separate lines.
+    for index, raw_line in enumerate(lines):
+        line = clean(raw_line).replace("\xa0", " ")
+        normalized = line.lower().strip()
+        for label in sorted(wanted, key=len, reverse=True):
+            if normalized == label or normalized == label + ":":
+                for following in lines[index + 1:]:
+                    value = clean(following).replace("\xa0", " ").strip(" :")
+                    if value:
+                        # Do not accidentally capture the next label as a value.
+                        if value.lower().rstrip(":") in wanted:
+                            break
+                        return value
+            prefix = label + ":"
+            if normalized.startswith(prefix):
+                inline = line[len(prefix):].strip(" :\t")
+                if inline:
+                    return inline
+    return ""
+
+
+def extract_multiline_field(lines, *labels):
+    """Collect a multiline value until the next recognizable ESBD label."""
+    wanted = {clean(label).lower().rstrip(":") for label in labels}
+    common_labels = {
+        "solicitation id", "status", "contact name", "contact number", "contact email",
+        "bid response email", "response due date", "response due time",
+        "agency/texas smartbuy member number", "agency/texas smartbuy member name",
+        "posting requirement", "state agency procurement certification",
+        "solicitation posting date", "last modified", "class/item code", "class/item codes",
+        "highway districts", "zones", "bid response url", "addendum",
+        "solicitation description", "attachments", "download pdf", "follow solicitation",
+        "bid response url", "solicitation type", "estimated value", "estimated amount",
+    }
+    for index, raw_line in enumerate(lines):
+        line = clean(raw_line).replace("\xa0", " ")
+        normalized = line.lower().rstrip(":").strip()
+        matched = next((label for label in wanted if normalized == label), None)
+        if not matched:
+            continue
+        parts = []
+        for raw_value in lines[index + 1:]:
+            value = clean(raw_value).replace("\xa0", " ")
+            normalized_value = value.lower().rstrip(":").strip()
+            if normalized_value in common_labels or any(normalized_value.startswith(x + ":") for x in common_labels):
+                break
+            if value:
+                parts.append(value)
+        return clean(" ".join(parts))
     return ""
 
 
 def extract_description(lines):
-    collecting = False
-    parts = []
-    stops = {"attachments", "download pdf", "follow solicitation"}
-    for line in lines:
-        stripped = clean(line)
-        label = stripped.lower().rstrip(":")
-        if label in {"solicitation description", "description"}:
-            collecting = True
-            continue
-        if collecting and label in stops:
-            break
-        if collecting and stripped:
-            parts.append(stripped)
-    return clean(" ".join(parts))
+    return extract_multiline_field(lines, "Solicitation Description", "Description")
+
+
+def keyword_relevance(record):
+    """Conservative text signal, not a promise that the bid is a fit."""
+    text = clean(" ".join([
+        record.get("title", ""), record.get("description", ""),
+        record.get("class_item_codes", ""), record.get("opportunity_type", ""),
+    ])).lower()
+    groups = {
+        "healthcare IT": ("healthcare it", "health information", "health informatics", "clinical system", "medical record", "patient portal", "hospital information system"),
+        "health data analytics": ("health data", "clinical data", "healthcare analytics", "medical analytics", "population health"),
+        "EHR": ("ehr", "electronic health record", "electronic medical record", "emr", "epic", "cerner", "oracle health"),
+        "interoperability": ("interoperability", "hl7", "fhir", "health information exchange", "interface engine"),
+        "cybersecurity": ("cybersecurity", "cyber security", "information security", "security assessment", "penetration test", "siem", "zero trust"),
+    }
+    hits = [group for group, terms in groups.items() if any(term in text for term in terms)]
+    if hits:
+        return "Potential match", "Content contains: " + ", ".join(hits)
+    return "Unverified / likely unrelated", "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually."
 
 
 def enrich_detail(page, record, keyword, failures):
     try:
-        page.goto(record["url"], wait_until="domcontentloaded", timeout=45000)
-        page.wait_for_timeout(700)
-        lines = page.locator("body").inner_text().splitlines()
+        page.goto(record["url"], wait_until="domcontentloaded", timeout=120000)
+        # Wait for the ESBD client-rendered page, not just the initial HTML shell.
+        try:
+            page.locator("#main").wait_for(state="visible", timeout=45000)
+        except PlaywrightTimeoutError:
+            pass
+        try:
+            page.locator("h1, h2").first.wait_for(state="visible", timeout=20000)
+        except PlaywrightTimeoutError:
+            pass
+        page.wait_for_timeout(900)
+        lines = [clean(line).replace("\xa0", " ") for line in page.locator("body").inner_text(timeout=30000).splitlines()]
 
         for heading in page.locator("h1, h2").all_text_contents():
             heading = clean(heading)
@@ -605,9 +690,27 @@ def enrich_detail(page, record, keyword, failures):
             "due_time": ("Response Due Time", "Due Time"),
             "opportunity_type": ("Solicitation Type", "Type"),
             "estimated_value": ("Estimated Value", "Estimated Amount"),
+            "contact_name": ("Contact Name",),
+            "contact_number": ("Contact Number",),
+            "contact_email": ("Contact Email",),
+            "bid_response_email": ("Bid Response Email",),
+            "bid_response_url": ("Bid Response URL", "Bid Response URL"),
+            "posting_requirement": ("Posting Requirement",),
+            "procurement_certification": ("State Agency Procurement Certification",),
+            "last_modified": ("Last Modified",),
+            "class_item_codes": ("Class/Item Code", "Class/Item Codes", "Class Item Code", "Class Item Codes"),
+            "highway_districts": ("Highway Districts",),
+            "zones": ("Zones",),
+            "addendum_details": ("Addendum",),
         }
         for target, labels in fields.items():
             extracted = extract_label(lines, *labels)
+            if target in {"highway_districts", "zones", "addendum_details"}:
+                multiline = extract_multiline_field(lines, *labels)
+                if multiline:
+                    extracted = multiline
+            elif not extracted and target == "class_item_codes":
+                extracted = extract_multiline_field(lines, *labels)
             if extracted:
                 record[target] = extracted
 
@@ -615,16 +718,28 @@ def enrich_detail(page, record, keyword, failures):
         if description:
             record["description"] = description
 
+        record["source_page_title"] = clean(page.title())
         record["detail_read_ok"] = True
+        record["detail_extraction_status"] = "Completed; some fields may be unavailable on the source page"
+        relevance, relevance_notes = keyword_relevance(record)
+        record["keyword_relevance"] = relevance
+        record["relevance_notes"] = relevance_notes
         resolve_failures(failures, record.get("solicitation_id", ""))
+        print(
+            f"DETAIL EXTRACT: ID={record.get('solicitation_id')} title={bool(record.get('title'))} "
+            f"agency={bool(record.get('agency'))} due={bool(record.get('due_date'))} "
+            f"description={bool(record.get('description'))} relevance={relevance}", flush=True
+        )
     except Exception as exc:
         record["detail_read_ok"] = False
+        record["detail_extraction_status"] = f"Failed: {type(exc).__name__}: {clean(exc)}"[:500]
         log_failure(failures, keyword, record, "Detail extraction", str(exc))
-        print(f"DETAIL FAILURE: {record.get('solicitation_id')} — {exc}")
+        print(f"DETAIL FAILURE: {record.get('solicitation_id')} — {exc}", flush=True)
     return record
 
-
 def to_opportunity_row(record):
+    now_utc = datetime.now(UTC_TZ).replace(microsecond=0)
+    now_local = now_utc.astimezone(CENTRAL_TZ)
     row = {header: "" for header in HEADERS}
     row.update({
         "Opportunity ID": record.get("solicitation_id", ""),
@@ -642,20 +757,32 @@ def to_opportunity_row(record):
         "Estimated Value (if published)": record.get("estimated_value", ""),
         "Scope Summary": record.get("description", ""),
         "Mandatory Gate (Pass / Fail / Unknown)": "Unknown",
-        "Recommendation (Go / Investigate / No-Go)": (
-            "Go" if is_open(record, {"accepted_statuses": ["Posted", "Open"]})
-            else "Investigate"
-        ),
-        "Fit Rationale": (
-            "Status and eligibility should be verified against the official solicitation page."
-            if not clean(record.get("status"))
-            else f"Extracted ESBD status: {clean(record.get('status'))}. Review fit and requirements."
-        ),
+        "Recommendation (Go / Investigate / No-Go)": "Investigate",
+        "Fit Rationale": "Verify status, eligibility, requirements, and relevance against the official solicitation before deciding.",
+        "Stored At (UTC)": record.get("stored_at_utc", now_utc.isoformat()),
+        "Stored At (America/Chicago)": record.get("stored_at_local", now_local.isoformat()),
+        "Last Modified": record.get("last_modified", ""),
+        "Solicitation Status": record.get("status", ""),
+        "Contact Name": record.get("contact_name", ""),
+        "Contact Number": record.get("contact_number", ""),
+        "Contact Email": record.get("contact_email", ""),
+        "Bid Response Email": record.get("bid_response_email", ""),
+        "Bid Response URL": record.get("bid_response_url", ""),
+        "Posting Requirement": record.get("posting_requirement", ""),
+        "State Agency Procurement Certification": record.get("procurement_certification", ""),
+        "Class/Item Codes": record.get("class_item_codes", ""),
+        "Highway Districts": record.get("highway_districts", ""),
+        "Zones": record.get("zones", ""),
+        "Addendum Details": record.get("addendum_details", ""),
+        "Keyword Relevance": record.get("keyword_relevance", "Unverified / likely unrelated"),
+        "Relevance Notes": record.get("relevance_notes", ""),
+        "Detail Extraction Status": record.get("detail_extraction_status", "Not verified"),
+        "Source Page Title": record.get("source_page_title", ""),
     })
+    # Keep human-owned review fields empty; never invent scores or certifications.
     for header in NEVER_AUTO_FILL:
         row[header] = ""
     return row
-
 
 def connect_google(config):
     secret = os.environ.get("GOOGLE_SERVICE_ACCOUNT_JSON")
@@ -695,47 +822,160 @@ def sync_opportunities(spreadsheet, config, history):
         sheet.append_row(HEADERS, value_input_option="RAW")
         values = [HEADERS]
 
-    header = values[0]
-    if header[:len(HEADERS)] != HEADERS:
+    header = list(values[0])
+    if header[:len(CORE_HEADERS)] != CORE_HEADERS:
         raise RuntimeError(
-            "Main sheet headers do not match the expected first 35 columns "
-            "in the required order. No opportunity rows were appended."
+            "Main sheet's first 35 headers do not match the expected order. "
+            "No opportunity rows were appended. Check row 1 before rerunning."
         )
 
+    # Append any new ESBD detail headers to the right, preserving existing rows.
+    missing_headers = [name for name in HEADERS if name not in header]
+    if missing_headers:
+        start_col = len(header) + 1
+        end_col = start_col + len(missing_headers) - 1
+        def col_letter(number):
+            result = ""
+            while number:
+                number, remainder = divmod(number - 1, 26)
+                result = chr(65 + remainder) + result
+            return result
+        sheet.update(
+            f"{col_letter(start_col)}1:{col_letter(end_col)}1",
+            [missing_headers], value_input_option="RAW"
+        )
+        values = sheet.get_all_values()
+        header = list(values[0])
+
     positions = {name: index for index, name in enumerate(header)}
+    print(f"SHEETS TARGET: title={sheet.title!r} worksheet_id={sheet.id}", flush=True)
+    print(f"SHEETS HEADER CHECK: core={len(CORE_HEADERS)} total_headers={len(header)}", flush=True)
     id_col = positions["Opportunity ID"]
     ref_col = positions["Solicitation / Reference No."]
     url_col = positions["Official Source URL"]
 
     existing_ids, existing_urls = set(), set()
-    for row in values[1:]:
+    existing_row_by_id = {}
+    existing_row_by_url = {}
+    vacant_template_rows = []
+    for row_number, row in enumerate(values[1:], start=2):
+        # Reuse the user's pre-created template rows that contain only State=Texas.
+        # This prevents valid opportunities being appended far below dozens of blank rows.
+        meaningful_cells = [clean(cell) for idx, cell in enumerate(row) if clean(cell) and idx != positions.get("State", -1)]
+        row_id = clean(row[id_col]) if len(row) > id_col else ""
+        row_title = clean(row[positions["Opportunity Title"]]) if len(row) > positions["Opportunity Title"] else ""
+        row_url = clean(row[url_col]) if len(row) > url_col else ""
+        if not row_id and not row_title and not row_url and not meaningful_cells:
+            vacant_template_rows.append(row_number)
+        sid_values = []
         if len(row) > id_col and row[id_col]:
-            existing_ids.add(row[id_col].strip().lower())
+            sid_values.append(row[id_col].strip().lower())
         if len(row) > ref_col and row[ref_col]:
-            existing_ids.add(row[ref_col].strip().lower())
+            sid_values.append(row[ref_col].strip().lower())
+        for existing_id in sid_values:
+            existing_ids.add(existing_id)
+            existing_row_by_id.setdefault(existing_id, (row_number, row))
         if len(row) > url_col and row[url_col]:
-            existing_urls.add(canonical_url(row[url_col]))
+            existing_url = canonical_url(row[url_col])
+            existing_urls.add(existing_url)
+            if existing_url:
+                existing_row_by_url.setdefault(existing_url, (row_number, row))
 
     additions = []
+    slot_fills = []
+    backfills = []
+    protected_manual = set(NEVER_AUTO_FILL)
     for record in history:
         if not is_candidate_for_review(record, config):
             continue
         row_dict = to_opportunity_row(record)
         sid = clean(record.get("solicitation_id")).lower()
         url = canonical_url(record.get("url", ""))
-        if sid and sid in existing_ids:
+        existing_match = existing_row_by_id.get(sid) if sid else None
+        if existing_match is None and url:
+            existing_match = existing_row_by_url.get(url)
+
+        if existing_match:
+            row_number, old_values = existing_match
+            merged = list(old_values) + [""] * max(0, len(header) - len(old_values))
+            changed = False
+            for column_name, column_index in positions.items():
+                if column_name in protected_manual:
+                    continue
+                new_value = clean(row_dict.get(column_name, ""))
+                old_value = clean(merged[column_index])
+                # Backfill missing cells only; never overwrite populated cells or human edits.
+                if not old_value and new_value:
+                    merged[column_index] = row_dict.get(column_name, "")
+                    changed = True
+            if changed:
+                backfills.append((row_number, merged[:len(header)]))
             continue
-        if url and url in existing_urls:
-            continue
-        additions.append([row_dict.get(col, "") for col in header])
+
+        new_row = [row_dict.get(col, "") for col in header]
+        if vacant_template_rows:
+            slot_fills.append((vacant_template_rows.pop(0), new_row))
+        else:
+            additions.append(new_row)
         if sid:
             existing_ids.add(sid)
         if url:
             existing_urls.add(url)
+    if backfills or slot_fills:
+        def col_letter(number):
+            result = ""
+            while number:
+                number, remainder = divmod(number - 1, 26)
+                result = chr(65 + remainder) + result
+            return result
+        for row_number, merged_row in backfills:
+            last_col = col_letter(len(header))
+            sheet.update(
+                f"A{row_number}:{last_col}{row_number}",
+                [merged_row], value_input_option="RAW"
+            )
+        for row_number, new_row in slot_fills:
+            last_col = col_letter(len(header))
+            sheet.update(
+                f"A{row_number}:{last_col}{row_number}",
+                [new_row], value_input_option="RAW"
+            )
+        if backfills:
+            print(f"Google Sheets: backfilled {len(backfills)} existing opportunity rows", flush=True)
+        if slot_fills:
+            print(f"Google Sheets: filled {len(slot_fills)} pre-existing blank template rows", flush=True)
 
     if additions:
-        sheet.append_rows(additions, value_input_option="RAW")
-    print(f"Google Sheets: appended {len(additions)} new opportunities", flush=True)
+        first = additions[0]
+        preview = {name: first[positions[name]] if positions[name] < len(first) else "" for name in (
+            "Opportunity ID", "State", "Agency", "Opportunity Title", "Official Source URL",
+            "Solicitation Status", "Contact Email", "Deadline Date", "Stored At (UTC)"
+        ) if name in positions}
+        print(f"SHEETS APPEND PREVIEW: {json.dumps(preview, ensure_ascii=False)}", flush=True)
+        response = sheet.append_rows(additions, value_input_option="RAW", insert_data_option="INSERT_ROWS")
+        print(f"SHEETS APPEND RESPONSE: {json.dumps(response, default=str, ensure_ascii=False)[:2000]}", flush=True)
+    else:
+        print("Google Sheets: no new rows to append (records may already exist by ID/URL or were written into template rows).", flush=True)
+
+    # Always read back after appends, backfills, or template-row fills.
+    try:
+        refreshed = sheet.get_all_values()
+        print(f"SHEETS READ-BACK: title={sheet.title!r} worksheet_id={sheet.id} total_rows={len(refreshed)}", flush=True)
+        if len(refreshed) > 1:
+            id_index = positions.get("Opportunity ID", 0)
+            nonempty_rows = [row for row in refreshed[1:] if len(row) > id_index and row[id_index].strip()]
+            sample_rows = nonempty_rows[-min(3, len(nonempty_rows)):]
+            for sample in sample_rows:
+                readback = {name: (sample[positions[name]] if positions[name] < len(sample) else "") for name in (
+                    "Opportunity ID", "State", "Agency", "Opportunity Title", "Official Source URL",
+                    "Solicitation Status", "Contact Email", "Deadline Date", "Stored At (UTC)"
+                ) if name in positions}
+                print(f"SHEETS NONEMPTY ROW READ-BACK: {json.dumps(readback, ensure_ascii=False)}", flush=True)
+            if not nonempty_rows:
+                print("SHEETS READ-BACK WARNING: no nonempty Opportunity ID found in the target worksheet after sync", flush=True)
+    except Exception as verify_exc:
+        print(f"SHEETS READ-BACK WARNING: {type(verify_exc).__name__}: {verify_exc}", flush=True)
+    print(f"Google Sheets: appended {len(additions)} new opportunities; filled template rows={len(slot_fills)}; backfilled existing rows={len(backfills)}", flush=True)
 
 
 def sync_manual_review(spreadsheet, config, failures):
@@ -892,7 +1132,7 @@ def main():
                 record_key(record) in history_by_key,
                 record.get("posting_date", ""),
             ))
-            cap = min(int(config.get("max_details_per_run", 20)), 20)
+            cap = max(1, min(int(config.get("max_details_per_run", 20)), 100))
             if len(candidates) > cap:
                 print(
                     f"WARNING: {len(candidates)} solicitation links found; "
@@ -924,6 +1164,8 @@ def main():
                         for field, value in record.items():
                             if value not in ("", None, []):
                                 old[field] = value
+                        old.setdefault("stored_at_utc", datetime.now(UTC_TZ).replace(microsecond=0).isoformat())
+                        old.setdefault("stored_at_local", datetime.now(UTC_TZ).astimezone(CENTRAL_TZ).replace(microsecond=0).isoformat())
                     else:
                         history_by_key[key] = record
                 persist_local_progress(history_by_key, failures)
@@ -948,10 +1190,13 @@ def main():
         "Official Source URL": r.get("url", ""),
         "Matched Keywords": ", ".join(r.get("matched_keywords", [])),
         "Date Found": r.get("date_found", ""),
+        "Stored At (UTC)": r.get("stored_at_utc", ""),
+        "Stored At (America/Chicago)": r.get("stored_at_local", ""),
     } for r in history], [
         "Opportunity ID", "Opportunity Title", "Status", "Agency",
         "Published Date", "Deadline Date", "Official Source URL",
-        "Matched Keywords", "Date Found",
+        "Matched Keywords", "Date Found", "Stored At (UTC)",
+        "Stored At (America/Chicago)",
     ])
     save_json(FAILURES_JSON, failures)
     save_csv(FAILURES_CSV, failures, MANUAL_HEADERS)
