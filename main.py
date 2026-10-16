@@ -236,7 +236,7 @@ def parse_csv_record(row, keyword, base_url):
 def _page_reports_no_results(page):
     """Return True only when the visible ESBD page explicitly indicates zero results."""
     try:
-        text = clean(page.locator("#content").inner_text()).lower()
+        text = clean(page.locator("body").inner_text()).lower()
     except Exception:
         return False
 
@@ -256,7 +256,7 @@ def _page_reports_no_results(page):
 
 def _solicitation_links(page):
     """Collect detail links from the currently displayed ESBD results page."""
-    anchors = page.locator("#content a[href]").evaluate_all(
+    anchors = page.locator("body a[href]:visible").evaluate_all(
         """els => els.map(a => ({
             href: a.getAttribute('href') || '',
             text: (a.innerText || a.textContent || '').trim()
@@ -291,7 +291,7 @@ def _solicitation_links(page):
 def _page_number_urls(page):
     """Find page numbers exposed by pagination links, without assuming a CSV export."""
     numbers = {1}
-    anchors = page.locator("#content a[href]").evaluate_all(
+    anchors = page.locator("body a[href]:visible").evaluate_all(
         """els => els.map(a => a.getAttribute('href') || '')"""
     )
     for href in anchors:
@@ -315,39 +315,38 @@ def search_keyword(page, keyword, config):
     """
     base_url = config.get("search_url", "https://www.txsmartbuy.gov/esbd")
     page.goto(base_url, wait_until="domcontentloaded", timeout=60000)
-    content = page.locator("#content")
-    content.wait_for(state="visible", timeout=30000)
-
-    keyword_box = content.get_by_label(re.compile(r"^Keyword Search$", re.I))
-    if keyword_box.count() != 1:
-        keyword_box = content.locator(
-            'input[aria-label*="keyword" i], '
-            'input[placeholder*="keyword" i], '
-            'input[name*="keyword" i], '
-            'input[id*="keyword" i]'
-        )
-    if keyword_box.count() != 1:
-        inputs = content.locator("input").evaluate_all(
+    # ESBD pages may contain a hidden duplicate #content element from the
+    # shopping layout. Use visible form controls instead of relying on that ID.
+    page.locator("body").wait_for(state="visible", timeout=30000)
+    keyword_candidates = page.locator(
+        'input:visible[aria-label*="keyword" i], '
+        'input:visible[placeholder*="keyword" i], '
+        'input:visible[name*="keyword" i], '
+        'input:visible[id*="keyword" i]'
+    )
+    if keyword_candidates.count() != 1:
+        inputs = page.locator("input:visible").evaluate_all(
             """els => els.map(e => ({
                 id: e.id, name: e.name, placeholder: e.placeholder,
                 ariaLabel: e.getAttribute('aria-label'), type: e.type
             }))"""
         )
         raise RuntimeError(
-            "Could not uniquely identify the ESBD Keyword Search field. "
-            f"Inputs found: {inputs}"
+            "Could not uniquely identify the visible ESBD Keyword Search field. "
+            f"Visible inputs found: {inputs}"
         )
 
+    keyword_box = keyword_candidates.first
     keyword_box.fill(keyword)
-    search_button = content.get_by_role(
+    search_buttons = page.get_by_role(
         "button", name=re.compile(r"^Search$", re.I)
-    )
-    if search_button.count() != 1:
+    ).locator(":visible")
+    if search_buttons.count() != 1:
         raise RuntimeError(
-            "Expected one Search button inside #content; "
-            f"found {search_button.count()}"
+            "Expected one visible ESBD Search button; "
+            f"found {search_buttons.count()}"
         )
-    search_button.click()
+    search_buttons.first.click()
     try:
         page.wait_for_load_state("domcontentloaded", timeout=10000)
     except PlaywrightTimeoutError:
@@ -381,7 +380,7 @@ def search_keyword(page, keyword, config):
         ))
         if page.url != page_url:
             page.goto(page_url, wait_until="domcontentloaded", timeout=60000)
-            page.locator("#content").wait_for(state="visible", timeout=30000)
+            page.locator("body").wait_for(state="visible", timeout=30000)
             page.wait_for_timeout(700)
 
         if _page_reports_no_results(page):
@@ -398,7 +397,7 @@ def search_keyword(page, keyword, config):
         if _page_reports_no_results(page):
             print(f"{keyword}: 0 results (ESBD explicitly reported no matches)")
             return []
-        excerpt = clean(content.inner_text())[:1200]
+        excerpt = clean(page.locator("body").inner_text())[:1200]
         raise RuntimeError(
             "No solicitation detail links were found and the page did not "
             "explicitly report zero results. The ESBD layout or search may "
