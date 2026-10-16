@@ -5,9 +5,9 @@
     "Solicitation ID": "",
     "Official Source URL": "",
     "Failure Stage": "Search/export",
-    "Failure Reason": "Locator.wait_for: Timeout 30000ms exceeded. Call log: - waiting for locator(\"#content\") to be visible 64 × locator resolved to hidden <div id=\"content\" class=\"shopping-layout-content\">…</div>",
+    "Failure Reason": "Expected one visible ESBD Search button; found 0",
     "Retry Status": "Pending manual review",
-    "Last Attempt": "2026-10-16T07:24:01-05:00"
+    "Last Attempt": "2026-10-16T07:33:06-05:00"
   },
   {
     "Date Detected": "2026-10-16T03:27:19-05:00",
@@ -15,9 +15,9 @@
     "Solicitation ID": "",
     "Official Source URL": "",
     "Failure Stage": "Search/export",
-    "Failure Reason": "Locator.wait_for: Timeout 30000ms exceeded. Call log: - waiting for locator(\"#content\") to be visible 64 × locator resolved to hidden <div id=\"content\" class=\"shopping-layout-content\">…</div>",
+    "Failure Reason": "Expected one visible ESBD Search button; found 0",
     "Retry Status": "Pending manual review",
-    "Last Attempt": "2026-10-16T07:24:39-05:00"
+    "Last Attempt": "2026-10-16T07:33:11-05:00"
   },
   {
     "Date Detected": "2026-10-16T03:27:49-05:00",
@@ -25,9 +25,9 @@
     "Solicitation ID": "",
     "Official Source URL": "",
     "Failure Stage": "Search/export",
-    "Failure Reason": "Locator.wait_for: Timeout 30000ms exceeded. Call log: - waiting for locator(\"#content\") to be visible 63 × locator resolved to hidden <div id=\"content\" class=\"shopping-layout-content\">…</div>",
+    "Failure Reason": "Expected one visible ESBD Search button; found 0",
     "Retry Status": "Pending manual review",
-    "Last Attempt": "2026-10-16T07:25:16-05:00"
+    "Last Attempt": "2026-10-16T07:33:16-05:00"
   },
   {
     "Date Detected": "2026-10-16T03:28:19-05:00",
@@ -35,9 +35,9 @@
     "Solicitation ID": "",
     "Official Source URL": "",
     "Failure Stage": "Search/export",
-    "Failure Reason": "Locator.wait_for: Timeout 30000ms exceeded. Call log: - waiting for locator(\"#content\") to be visible 63 × locator resolved to hidden <div id=\"content\" class=\"shopping-layout-content\">…</div>",
+    "Failure Reason": "Expected one visible ESBD Search button; found 0",
     "Retry Status": "Pending manual review",
-    "Last Attempt": "2026-10-16T07:25:54-05:00"
+    "Last Attempt": "2026-10-16T07:33:22-05:00"
   },
   {
     "Date Detected": "2026-10-16T03:28:49-05:00",
@@ -45,8 +45,8 @@
     "Solicitation ID": "",
     "Official Source URL": "",
     "Failure Stage": "Search/export",
-    "Failure Reason": "Locator.wait_for: Timeout 30000ms exceeded. Call log: - waiting for locator(\"#content\") to be visible 64 × locator resolved to hidden <div id=\"content\" class=\"shopping-layout-content\">…</div>",
+    "Failure Reason": "Expected one visible ESBD Search button; found 0",
     "Retry Status": "Pending manual review",
-    "Last Attempt": "2026-10-16T07:26:32-05:00"
+    "Last Attempt": "2026-10-16T07:33:27-05:00"
   }
 ]
