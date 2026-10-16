@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 
 import gspread
 from google.oauth2.service_account import Credentials
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError, sync_playwright
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
@@ -233,27 +233,44 @@ def parse_csv_record(row, keyword, base_url):
     }
 
 
-def search_keyword(page, keyword, config):
-    page.goto(
-        config.get("search_url", "https://www.txsmartbuy.gov/esbd"),
-        wait_until="domcontentloaded",
-        timeout=60000,
+def _page_reports_no_results(page):
+    """Return True only when the visible ESBD page explicitly indicates zero results."""
+    try:
+        text = clean(page.locator("#content").inner_text()).lower()
+    except Exception:
+        return False
+
+    no_result_phrases = (
+        "no results found",
+        "no matching results",
+        "no records found",
+        "no matching records",
+        "no solicitations found",
+        "no data available in table",
+        "your search returned 0 results",
+        "0 results found",
+        "there are no results",
     )
+    return any(phrase in text for phrase in no_result_phrases)
+
+
+def search_keyword(page, keyword, config):
+    base_url = config.get("search_url", "https://www.txsmartbuy.gov/esbd")
+    page.goto(base_url, wait_until="domcontentloaded", timeout=60000)
     page.locator("#content").wait_for(state="visible", timeout=30000)
 
-    # Scope to the ESBD content: the site header has another search box.
-    keyword_box = page.locator("#content").get_by_label(
-        re.compile(r"^Keyword Search$", re.I)
-    )
+    # The site header has another Search box, so scope all selectors to #content.
+    content = page.locator("#content")
+    keyword_box = content.get_by_label(re.compile(r"^Keyword Search$", re.I))
     if keyword_box.count() != 1:
-        keyword_box = page.locator(
-            '#content input[aria-label*="keyword" i], '
-            '#content input[placeholder*="keyword" i], '
-            '#content input[name*="keyword" i], '
-            '#content input[id*="keyword" i]'
+        keyword_box = content.locator(
+            'input[aria-label*="keyword" i], '
+            'input[placeholder*="keyword" i], '
+            'input[name*="keyword" i], '
+            'input[id*="keyword" i]'
         )
     if keyword_box.count() != 1:
-        inputs = page.locator("#content input").evaluate_all(
+        inputs = content.locator("input").evaluate_all(
             """els => els.map(e => ({
                 id: e.id, name: e.name, placeholder: e.placeholder,
                 ariaLabel: e.getAttribute('aria-label'), type: e.type
@@ -265,7 +282,7 @@ def search_keyword(page, keyword, config):
         )
 
     keyword_box.fill(keyword)
-    search_button = page.locator("#content").get_by_role(
+    search_button = content.get_by_role(
         "button", name=re.compile(r"^Search$", re.I)
     )
     if search_button.count() != 1:
@@ -274,21 +291,49 @@ def search_keyword(page, keyword, config):
             f"found {search_button.count()}"
         )
     search_button.click()
-    page.wait_for_load_state("domcontentloaded", timeout=30000)
-    page.wait_for_timeout(1500)
 
-    export_button = page.locator("#content").get_by_role(
+    # Some pages update results asynchronously without a full navigation.
+    try:
+        page.wait_for_load_state("domcontentloaded", timeout=10000)
+    except PlaywrightTimeoutError:
+        pass
+    page.wait_for_timeout(2000)
+
+    # An explicitly empty result is a successful search, not a scraper failure.
+    if _page_reports_no_results(page):
+        print(f"{keyword}: 0 results (the ESBD page reported no matches)")
+        return []
+
+    export_button = content.get_by_role(
         "button", name=re.compile(r"Export to CSV", re.I)
     )
     if export_button.count() != 1:
+        if _page_reports_no_results(page):
+            print(f"{keyword}: 0 results (the ESBD page reported no matches)")
+            return []
         raise RuntimeError(
-            "Expected one Export to CSV button inside #content; "
-            f"found {export_button.count()}"
+            "Could not uniquely identify the Export to CSV button. "
+            f"Found {export_button.count()} buttons."
         )
 
-    with page.expect_download(timeout=60000) as download_info:
-        export_button.click()
-    download = download_info.value
+    # Do not assume every click produces a download. If the site explicitly
+    # reports zero results, treat that as an empty success; otherwise preserve
+    # a clear error so a broken export is not mistaken for zero opportunities.
+    try:
+        with page.expect_download(timeout=20000) as download_info:
+            export_button.click(timeout=15000)
+        download = download_info.value
+    except PlaywrightTimeoutError as exc:
+        if _page_reports_no_results(page):
+            print(f"{keyword}: 0 results (the ESBD page reported no matches)")
+            return []
+        raise RuntimeError(
+            "Clicked Export to CSV but the browser did not start a download. "
+            "The page did not explicitly report zero results, so this is "
+            "being logged as an export failure rather than a no-opportunity result. "
+            f"Current URL: {page.url}"
+        ) from exc
+
     safe_name = re.sub(r"[^a-z0-9]+", "-", keyword.lower()).strip("-")
     export_path = DATA / f"esbd-export-{safe_name}.csv"
     download.save_as(str(export_path))
@@ -296,25 +341,23 @@ def search_keyword(page, keyword, config):
     with export_path.open("r", encoding="utf-8-sig", newline="") as handle:
         rows = list(csv.DictReader(handle))
 
-    if rows:
-        available = {norm(key) for key in rows[0]}
-        if not available.intersection({
-            "solicitationid", "solicitationnumber",
-            "bidnumber", "id", "solicitationreferenceno",
-        }):
-            raise RuntimeError(
-                "CSV ID column not recognized. Found headers: "
-                + ", ".join(rows[0].keys())
-            )
+    # A valid CSV with headers and zero data rows is also a successful empty result.
+    if not rows:
+        print(f"{keyword}: 0 CSV rows")
+        return []
+
+    available = {norm(key) for key in rows[0]}
+    if not available.intersection({
+        "solicitationid", "solicitationnumber",
+        "bidnumber", "id", "solicitationreferenceno",
+    }):
+        raise RuntimeError(
+            "CSV ID column not recognized. Found headers: "
+            + ", ".join(rows[0].keys())
+        )
 
     print(f"{keyword}: {len(rows)} CSV rows")
-    return [
-        parse_csv_record(row, keyword, config.get(
-            "search_url", "https://www.txsmartbuy.gov/esbd"
-        ))
-        for row in rows
-    ]
-
+    return [parse_csv_record(row, keyword, base_url) for row in rows]
 
 def extract_label(lines, *labels):
     wanted = {clean(label).lower().rstrip(":") for label in labels}
