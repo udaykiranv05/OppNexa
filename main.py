@@ -94,6 +94,29 @@ def save_csv(path, records, fields):
         writer.writerows(records)
 
 
+def persist_local_progress(history_by_key, failures):
+    """Persist progress during the run so cancellation doesn't discard all work."""
+    history_now = list(history_by_key.values())
+    save_json(HISTORY_JSON, history_now)
+    save_csv(HISTORY_CSV, [{
+        "Opportunity ID": r.get("solicitation_id", ""),
+        "Opportunity Title": r.get("title", ""),
+        "Status": r.get("status", ""),
+        "Agency": r.get("agency", ""),
+        "Published Date": r.get("posting_date", ""),
+        "Deadline Date": r.get("due_date", ""),
+        "Official Source URL": r.get("url", ""),
+        "Matched Keywords": ", ".join(r.get("matched_keywords", [])),
+        "Date Found": r.get("date_found", ""),
+    } for r in history_now], [
+        "Opportunity ID", "Opportunity Title", "Status", "Agency",
+        "Published Date", "Deadline Date", "Official Source URL",
+        "Matched Keywords", "Date Found",
+    ])
+    save_json(FAILURES_JSON, failures)
+    save_csv(FAILURES_CSV, failures, MANUAL_HEADERS)
+
+
 def parse_date(value):
     value = clean(value)
     for fmt in ("%m/%d/%Y", "%m/%d/%y", "%Y-%m-%d", "%m-%d-%Y"):
@@ -314,10 +337,10 @@ def search_keyword(page, keyword, config):
     site did not start a Playwright download in the GitHub Actions environment.
     """
     base_url = config.get("search_url", "https://www.txsmartbuy.gov/esbd")
-    page.goto(base_url, wait_until="domcontentloaded", timeout=120000)
+    page.goto(base_url, wait_until="domcontentloaded", timeout=60000)
     # ESBD pages may contain a hidden duplicate #content element from the
     # shopping layout. Use visible form controls instead of relying on that ID.
-    page.locator("body").wait_for(state="visible", timeout=90000)
+    page.locator("body").wait_for(state="visible", timeout=30000)
     keyword_candidates = page.locator(
         'input:visible[aria-label*="keyword" i], '
         'input:visible[placeholder*="keyword" i], '
@@ -403,8 +426,8 @@ def search_keyword(page, keyword, config):
             "",
         ))
         if page.url != page_url:
-            page.goto(page_url, wait_until="domcontentloaded", timeout=120000)
-            page.locator("body").wait_for(state="visible", timeout=90000)
+            page.goto(page_url, wait_until="domcontentloaded", timeout=60000)
+            page.locator("body").wait_for(state="visible", timeout=30000)
             page.wait_for_timeout(700)
 
         if _page_reports_no_results(page):
@@ -448,7 +471,7 @@ def search_keyword(page, keyword, config):
             "date_found": date.today().isoformat(),
         })
 
-    print(f"{keyword}: collected {len(records)} solicitation links from ESBD")
+    print(f"{keyword}: collected {len(records)} solicitation links from ESBD", flush=True)
     return records
 
 def extract_label(lines, *labels):
@@ -480,7 +503,7 @@ def extract_description(lines):
 
 def enrich_detail(page, record, keyword, failures):
     try:
-        page.goto(record["url"], wait_until="domcontentloaded", timeout=120000)
+        page.goto(record["url"], wait_until="domcontentloaded", timeout=45000)
         page.wait_for_timeout(700)
         lines = page.locator("body").inner_text().splitlines()
 
@@ -707,8 +730,8 @@ def main():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
         page = browser.new_page(accept_downloads=True)
-        page.set_default_timeout(90000)
-        page.set_default_navigation_timeout(120000)
+        page.set_default_timeout(30000)
+        page.set_default_navigation_timeout(60000)
         try:
             for keyword in config["keywords"]:
                 try:
@@ -716,7 +739,7 @@ def main():
                 except Exception as exc:
                     log_failure(failures, keyword, {}, "Search/export", str(exc))
                     search_failures.append(keyword)
-                    print(f"SEARCH FAILURE for {keyword}: {exc}")
+                    print(f"SEARCH FAILURE for {keyword}: {exc}", flush=True)
                     continue
 
                 for record in records:
@@ -734,6 +757,12 @@ def main():
                         discovered[key] = record
                     elif keyword not in discovered[key]["matched_keywords"]:
                         discovered[key]["matched_keywords"].append(keyword)
+                persist_local_progress(history_by_key, failures)
+                print(
+                    f"Search stage complete for keyword: {keyword}; "
+                    f"unique links so far: {len(discovered)}",
+                    flush=True,
+                )
                 time.sleep(float(config.get("request_delay_seconds", 2)))
 
             # Read each detail page BEFORE filtering by status/deadline.
@@ -743,7 +772,7 @@ def main():
                 record_key(record) in history_by_key,
                 record.get("posting_date", ""),
             ))
-            cap = int(config.get("max_details_per_run", 100))
+            cap = min(int(config.get("max_details_per_run", 20)), 20)
             if len(candidates) > cap:
                 print(
                     f"WARNING: {len(candidates)} solicitation links found; "
@@ -767,6 +796,12 @@ def main():
                                 old[field] = value
                     else:
                         history_by_key[key] = record
+                persist_local_progress(history_by_key, failures)
+                print(
+                    f"Detail stage progress: {record.get('solicitation_id', '')}; "
+                    f"accepted history records: {len(history_by_key)}",
+                    flush=True,
+                )
                 time.sleep(float(config.get("request_delay_seconds", 2)))
         finally:
             browser.close()
@@ -795,8 +830,8 @@ def main():
     sync_opportunities(spreadsheet, config, history)
     sync_manual_review(spreadsheet, config, failures)
 
-    print(f"Unique history records: {len(history)}")
-    print(f"Failure/manual-review records: {len(failures)}")
+    print(f"Unique history records: {len(history)}", flush=True)
+    print(f"Failure/manual-review records: {len(failures)}", flush=True)
     if search_failures:
         raise RuntimeError(
             "One or more ESBD searches failed: " + ", ".join(search_failures)
