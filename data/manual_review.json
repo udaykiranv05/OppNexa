@@ -1,0 +1,52 @@
+[
+  {
+    "Date Detected": "2026-10-16T03:26:48-05:00",
+    "Keyword": "healthcare IT",
+    "Solicitation ID": "",
+    "Official Source URL": "",
+    "Failure Stage": "Search/export",
+    "Failure Reason": "Locator.fill: Timeout 30000ms exceeded. Call log: - waiting for get_by_label(re.compile(r\"Keyword Search\", re.IGNORECASE))",
+    "Retry Status": "Pending manual review",
+    "Last Attempt": "2026-10-16T03:26:48-05:00"
+  },
+  {
+    "Date Detected": "2026-10-16T03:27:19-05:00",
+    "Keyword": "health data analytics",
+    "Solicitation ID": "",
+    "Official Source URL": "",
+    "Failure Stage": "Search/export",
+    "Failure Reason": "Locator.fill: Timeout 30000ms exceeded. Call log: - waiting for get_by_label(re.compile(r\"Keyword Search\", re.IGNORECASE))",
+    "Retry Status": "Pending manual review",
+    "Last Attempt": "2026-10-16T03:27:19-05:00"
+  },
+  {
+    "Date Detected": "2026-10-16T03:27:49-05:00",
+    "Keyword": "EHR",
+    "Solicitation ID": "",
+    "Official Source URL": "",
+    "Failure Stage": "Search/export",
+    "Failure Reason": "Locator.fill: Timeout 30000ms exceeded. Call log: - waiting for get_by_label(re.compile(r\"Keyword Search\", re.IGNORECASE))",
+    "Retry Status": "Pending manual review",
+    "Last Attempt": "2026-10-16T03:27:49-05:00"
+  },
+  {
+    "Date Detected": "2026-10-16T03:28:19-05:00",
+    "Keyword": "interoperability",
+    "Solicitation ID": "",
+    "Official Source URL": "",
+    "Failure Stage": "Search/export",
+    "Failure Reason": "Locator.fill: Timeout 30000ms exceeded. Call log: - waiting for get_by_label(re.compile(r\"Keyword Search\", re.IGNORECASE))",
+    "Retry Status": "Pending manual review",
+    "Last Attempt": "2026-10-16T03:28:19-05:00"
+  },
+  {
+    "Date Detected": "2026-10-16T03:28:49-05:00",
+    "Keyword": "cybersecurity",
+    "Solicitation ID": "",
+    "Official Source URL": "",
+    "Failure Stage": "Search/export",
+    "Failure Reason": "Locator.fill: Timeout 30000ms exceeded. Call log: - waiting for get_by_label(re.compile(r\"Keyword Search\", re.IGNORECASE))",
+    "Retry Status": "Pending manual review",
+    "Last Attempt": "2026-10-16T03:28:49-05:00"
+  }
+]

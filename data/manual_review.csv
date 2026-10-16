@@ -1,0 +1,6 @@
+﻿Date Detected,Keyword,Solicitation ID,Official Source URL,Failure Stage,Failure Reason,Retry Status,Last Attempt
+2026-10-16T03:26:48-05:00,healthcare IT,,,Search/export,"Locator.fill: Timeout 30000ms exceeded. Call log: - waiting for get_by_label(re.compile(r""Keyword Search"", re.IGNORECASE))",Pending manual review,2026-10-16T03:26:48-05:00
+2026-10-16T03:27:19-05:00,health data analytics,,,Search/export,"Locator.fill: Timeout 30000ms exceeded. Call log: - waiting for get_by_label(re.compile(r""Keyword Search"", re.IGNORECASE))",Pending manual review,2026-10-16T03:27:19-05:00
+2026-10-16T03:27:49-05:00,EHR,,,Search/export,"Locator.fill: Timeout 30000ms exceeded. Call log: - waiting for get_by_label(re.compile(r""Keyword Search"", re.IGNORECASE))",Pending manual review,2026-10-16T03:27:49-05:00
+2026-10-16T03:28:19-05:00,interoperability,,,Search/export,"Locator.fill: Timeout 30000ms exceeded. Call log: - waiting for get_by_label(re.compile(r""Keyword Search"", re.IGNORECASE))",Pending manual review,2026-10-16T03:28:19-05:00
+2026-10-16T03:28:49-05:00,cybersecurity,,,Search/export,"Locator.fill: Timeout 30000ms exceeded. Call log: - waiting for get_by_label(re.compile(r""Keyword Search"", re.IGNORECASE))",Pending manual review,2026-10-16T03:28:49-05:00
