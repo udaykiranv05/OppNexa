@@ -5,9 +5,9 @@
     "Solicitation ID": "",
     "Official Source URL": "",
     "Failure Stage": "Search/export",
-    "Failure Reason": "Timeout 60000ms exceeded while waiting for event \"download\" =========================== logs =========================== waiting for event \"download\" ============================================================",
+    "Failure Reason": "Clicked Export to CSV but the browser did not start a download. The page did not explicitly report zero results, so this is being logged as an export failure rather than a no-opportunity result. Current URL: https://www.txsmartbuy.gov/esbd?page=1&keyword=healthcare%20IT",
     "Retry Status": "Pending manual review",
-    "Last Attempt": "2026-10-16T06:44:37-05:00"
+    "Last Attempt": "2026-10-16T06:53:55-05:00"
   },
   {
     "Date Detected": "2026-10-16T03:27:19-05:00",
@@ -15,9 +15,9 @@
     "Solicitation ID": "",
     "Official Source URL": "",
     "Failure Stage": "Search/export",
-    "Failure Reason": "Timeout 60000ms exceeded while waiting for event \"download\" =========================== logs =========================== waiting for event \"download\" ============================================================",
+    "Failure Reason": "Clicked Export to CSV but the browser did not start a download. The page did not explicitly report zero results, so this is being logged as an export failure rather than a no-opportunity result. Current URL: https://www.txsmartbuy.gov/esbd?page=1&keyword=health%20data%20analytics",
     "Retry Status": "Pending manual review",
-    "Last Attempt": "2026-10-16T06:45:44-05:00"
+    "Last Attempt": "2026-10-16T06:54:22-05:00"
   },
   {
     "Date Detected": "2026-10-16T03:27:49-05:00",
@@ -25,9 +25,9 @@
     "Solicitation ID": "",
     "Official Source URL": "",
     "Failure Stage": "Search/export",
-    "Failure Reason": "Timeout 60000ms exceeded while waiting for event \"download\" =========================== logs =========================== waiting for event \"download\" ============================================================",
+    "Failure Reason": "Clicked Export to CSV but the browser did not start a download. The page did not explicitly report zero results, so this is being logged as an export failure rather than a no-opportunity result. Current URL: https://www.txsmartbuy.gov/esbd?page=1&keyword=EHR",
     "Retry Status": "Pending manual review",
-    "Last Attempt": "2026-10-16T06:46:51-05:00"
+    "Last Attempt": "2026-10-16T06:54:49-05:00"
   },
   {
     "Date Detected": "2026-10-16T03:28:19-05:00",
@@ -35,9 +35,9 @@
     "Solicitation ID": "",
     "Official Source URL": "",
     "Failure Stage": "Search/export",
-    "Failure Reason": "Timeout 60000ms exceeded while waiting for event \"download\" =========================== logs =========================== waiting for event \"download\" ============================================================",
+    "Failure Reason": "Clicked Export to CSV but the browser did not start a download. The page did not explicitly report zero results, so this is being logged as an export failure rather than a no-opportunity result. Current URL: https://www.txsmartbuy.gov/esbd?page=1&keyword=interoperability",
     "Retry Status": "Pending manual review",
-    "Last Attempt": "2026-10-16T06:47:57-05:00"
+    "Last Attempt": "2026-10-16T06:55:16-05:00"
   },
   {
     "Date Detected": "2026-10-16T03:28:49-05:00",
@@ -45,8 +45,8 @@
     "Solicitation ID": "",
     "Official Source URL": "",
     "Failure Stage": "Search/export",
-    "Failure Reason": "Timeout 60000ms exceeded while waiting for event \"download\" =========================== logs =========================== waiting for event \"download\" ============================================================",
+    "Failure Reason": "Clicked Export to CSV but the browser did not start a download. The page did not explicitly report zero results, so this is being logged as an export failure rather than a no-opportunity result. Current URL: https://www.txsmartbuy.gov/esbd?page=1&keyword=cybersecurity",
     "Retry Status": "Pending manual review",
-    "Last Attempt": "2026-10-16T06:49:04-05:00"
+    "Last Attempt": "2026-10-16T06:55:44-05:00"
   }
 ]
