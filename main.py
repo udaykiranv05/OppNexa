@@ -337,10 +337,48 @@ def search_keyword(page, keyword, config):
     site did not start a Playwright download in the GitHub Actions environment.
     """
     base_url = config.get("search_url", "https://www.txsmartbuy.gov/esbd")
-    page.goto(base_url, wait_until="domcontentloaded", timeout=60000)
-    # ESBD pages may contain a hidden duplicate #content element from the
-    # shopping layout. Use visible form controls instead of relying on that ID.
-    page.locator("body").wait_for(state="visible", timeout=30000)
+    print(f"DEBUG keyword: {keyword}", flush=True)
+    print(f"DEBUG requested URL: {base_url}", flush=True)
+    try:
+        response = page.goto(base_url, wait_until="domcontentloaded", timeout=60000)
+        print(f"DEBUG navigation status: {response.status if response else 'no response object'}", flush=True)
+    except Exception as navigation_error:
+        print(f"DEBUG navigation error: {type(navigation_error).__name__}: {navigation_error}", flush=True)
+        print(f"DEBUG current URL after navigation error: {page.url}", flush=True)
+        raise
+
+    print(f"DEBUG final URL: {page.url}", flush=True)
+    try:
+        print(f"DEBUG page title: {page.title()}", flush=True)
+    except Exception as title_error:
+        print(f"DEBUG title error: {title_error}", flush=True)
+
+    # Diagnose the actual document before attempting to locate controls.
+    # A body element can exist in the DOM but be hidden by a shell/redirect.
+    body = page.locator("body")
+    try:
+        body.wait_for(state="visible", timeout=15000)
+    except Exception as body_error:
+        print(f"DEBUG body visibility error: {type(body_error).__name__}: {body_error}", flush=True)
+        try:
+            print("DEBUG body outerHTML:", body.evaluate("el => el.outerHTML.slice(0, 5000)"), flush=True)
+        except Exception as html_error:
+            print(f"DEBUG body HTML unavailable: {html_error}", flush=True)
+        try:
+            print("DEBUG visible inputs:", page.locator("input:visible").evaluate_all(
+                "els => els.map(e => ({id:e.id,name:e.name,placeholder:e.placeholder,type:e.type,ariaLabel:e.getAttribute('aria-label')}))"
+            ), flush=True)
+        except Exception as input_error:
+            print(f"DEBUG visible input inspection failed: {input_error}", flush=True)
+        try:
+            page.screenshot(path="esbd_debug.png", full_page=True, timeout=10000)
+            print("DEBUG screenshot saved: esbd_debug.png", flush=True)
+        except Exception as screenshot_error:
+            print(f"DEBUG screenshot failed: {screenshot_error}", flush=True)
+        raise RuntimeError(
+            "ESBD body remained hidden. Use DEBUG final URL, page title, body HTML, "
+            "and visible-input output to identify the actual response."
+        ) from body_error
     keyword_candidates = page.locator(
         'input:visible[aria-label*="keyword" i], '
         'input:visible[placeholder*="keyword" i], '
@@ -427,7 +465,16 @@ def search_keyword(page, keyword, config):
         ))
         if page.url != page_url:
             page.goto(page_url, wait_until="domcontentloaded", timeout=60000)
-            page.locator("body").wait_for(state="visible", timeout=30000)
+            try:
+                page.locator("body").wait_for(state="visible", timeout=15000)
+            except Exception as body_error:
+                print(f"DEBUG pagination URL: {page.url}", flush=True)
+                print(f"DEBUG pagination title: {page.title()}", flush=True)
+                try:
+                    print("DEBUG pagination body HTML:", page.locator("body").evaluate("el => el.outerHTML.slice(0, 5000)"), flush=True)
+                except Exception as html_error:
+                    print(f"DEBUG pagination body HTML unavailable: {html_error}", flush=True)
+                raise RuntimeError("Pagination page body remained hidden") from body_error
             page.wait_for_timeout(700)
 
         if _page_reports_no_results(page):
