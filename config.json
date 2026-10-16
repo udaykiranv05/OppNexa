@@ -1,1 +1,21 @@
 
+{
+  "search_url": "https://www.txsmartbuy.gov/esbd",
+  "spreadsheet_id": "1T_cg_DBR5WG7vrQZuNqV4hP6BC_BY5sMpwx1v7j5IoU",
+  "worksheet_id": 979724893,
+  "manual_review_worksheet": "ESBD Manual Review",
+  "keywords": [
+    "healthcare IT",
+    "health data analytics",
+    "EHR",
+    "interoperability",
+    "cybersecurity"
+  ],
+  "accepted_statuses": [
+    "Posted",
+    "Addendum Posted"
+  ],
+  "exclude_expired": true,
+  "request_delay_seconds": 2,
+  "max_details_per_run": 100
+}
