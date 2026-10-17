@@ -37,8 +37,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "CM2628",
@@ -96,8 +96,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "6510-24-001_0926",
@@ -173,8 +173,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "0008714",
@@ -251,8 +251,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "RFP-730-UofH-3154",
@@ -291,8 +291,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "HHS0018082",
@@ -346,7 +346,11 @@
     "description": "Concho Valley Council of Governments (“CVCOG”) is soliciting Proposals from qualified and experienced Respondents to provide AUTOMATIC PASSENGER COUNTER (APC) SYSTEM FOR CONCHO VALLEY TRANSIT DISTRICT in accordance with the requirements set forth in this Solicitation (the submitting parties “Respondents” and the submissions “Proposals”). The objective of this Solicitation is to identify and contract with a Respondent that demonstrates the capability, expertise, and resources necessary to deliver high-quality services/products that meet the operational and performance needs of CVCOG. The successful Respondent will be selected based on their demonstrated ability to satisfy the evaluation criteria described in this document. All Proposals must be submitted in accordance with the instructions contained herein. Proposals that do not comply with the requirements and submission guidelines may be rejected as nonresponsive.",
     "url": "https://www.txsmartbuy.gov/esbd/26-010-Transit",
     "matched_keywords": [
-      "EHR"
+      "healthcare IT",
+      "health data analytics",
+      "EHR",
+      "interoperability",
+      "cybersecurity"
     ],
     "date_found": "2026-10-17",
     "detail_read_ok": true,
@@ -362,8 +366,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T07:17:05+00:00",
-    "stored_at_local": "2026-10-17T02:17:05-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "6100019818",
@@ -403,8 +407,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "601440000053880",
@@ -438,8 +442,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "601440000054486",
@@ -473,8 +477,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "6100018900",
@@ -514,8 +518,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "IW267278",
@@ -552,8 +556,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "TAMUS-ITB-27-0546",
@@ -591,8 +595,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "6100019874a",
@@ -631,8 +635,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "RFP27-03",
@@ -649,7 +653,11 @@
     "description": "This is a Request for Proposal (RFP) pursuant to Chapter 44.031 of the Texas Education Code. Houston City College (“HCC”and/or “the College”) is accepting sealed proposals from qualified firms/contractors to provide Biological Waste Collection and Disposal Services. Sealed responses, subject to the terms and conditions of this RFP as more fully explained herein, for evaluation of services must be received on or before the due date specified in the Solicitation Schedule. The purpose of this request is to allow HCC to purchase services from your firm while remaining in compliance with state and federal laws and requirements. HCC reserves the right to award separate contracts to multiple contractors. Visit Houston City College (bonfirehub.com) for additional information on this and other business opportunities.",
     "url": "https://www.txsmartbuy.gov/esbd/RFP27-03",
     "matched_keywords": [
-      "EHR"
+      "healthcare IT",
+      "health data analytics",
+      "EHR",
+      "interoperability",
+      "cybersecurity"
     ],
     "date_found": "2026-10-17",
     "detail_read_ok": true,
@@ -665,8 +673,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T07:17:05+00:00",
-    "stored_at_local": "2026-10-17T02:17:05-05:00"
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00"
   },
   {
     "solicitation_id": "RFP-301-27-08828",
@@ -745,8 +753,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -786,8 +794,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -827,8 +835,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -868,8 +876,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -909,8 +917,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -950,8 +958,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1031,8 +1039,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1072,8 +1080,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1113,8 +1121,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1154,8 +1162,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1195,8 +1203,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1236,8 +1244,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1270,11 +1278,15 @@
     "source_page_title": "ESBD",
     "url": "https://www.txsmartbuy.gov/esbd/03-470424523",
     "matched_keywords": [
-      "EHR"
+      "healthcare IT",
+      "health data analytics",
+      "EHR",
+      "interoperability",
+      "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T07:17:05+00:00",
-    "stored_at_local": "2026-10-17T02:17:05-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1314,8 +1326,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1348,11 +1360,15 @@
     "source_page_title": "ESBD",
     "url": "https://www.txsmartbuy.gov/esbd/781-7-CB-37",
     "matched_keywords": [
-      "EHR"
+      "healthcare IT",
+      "health data analytics",
+      "EHR",
+      "interoperability",
+      "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T07:17:05+00:00",
-    "stored_at_local": "2026-10-17T02:17:05-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1422,11 +1438,15 @@
     "source_page_title": "ESBD",
     "url": "https://www.txsmartbuy.gov/esbd/241859-26-02",
     "matched_keywords": [
-      "EHR"
+      "healthcare IT",
+      "health data analytics",
+      "EHR",
+      "interoperability",
+      "cybersecurity"
     ],
-    "date_found": "2026-10-16",
-    "stored_at_utc": "2026-10-16T15:23:32+00:00",
-    "stored_at_local": "2026-10-16T10:23:32-05:00",
+    "date_found": "2026-10-17",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1459,11 +1479,14 @@
     "source_page_title": "ESBD",
     "url": "https://www.txsmartbuy.gov/esbd/IW267747",
     "matched_keywords": [
-      "EHR"
+      "healthcare IT",
+      "health data analytics",
+      "EHR",
+      "cybersecurity"
     ],
-    "date_found": "2026-10-16",
-    "stored_at_utc": "2026-10-16T15:23:32+00:00",
-    "stored_at_local": "2026-10-16T10:23:32-05:00",
+    "date_found": "2026-10-17",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1496,11 +1519,14 @@
     "source_page_title": "ESBD",
     "url": "https://www.txsmartbuy.gov/esbd/IW266713",
     "matched_keywords": [
-      "EHR"
+      "healthcare IT",
+      "health data analytics",
+      "EHR",
+      "cybersecurity"
     ],
-    "date_found": "2026-10-16",
-    "stored_at_utc": "2026-10-16T15:23:32+00:00",
-    "stored_at_local": "2026-10-16T10:23:32-05:00",
+    "date_found": "2026-10-17",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1533,11 +1559,14 @@
     "source_page_title": "ESBD",
     "url": "https://www.txsmartbuy.gov/esbd/TRS000722",
     "matched_keywords": [
-      "EHR"
+      "healthcare IT",
+      "health data analytics",
+      "EHR",
+      "cybersecurity"
     ],
-    "date_found": "2026-10-16",
-    "stored_at_utc": "2026-10-16T15:23:32+00:00",
-    "stored_at_local": "2026-10-16T10:23:32-05:00",
+    "date_found": "2026-10-17",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1570,11 +1599,14 @@
     "source_page_title": "ESBD",
     "url": "https://www.txsmartbuy.gov/esbd/HHS0015558v3",
     "matched_keywords": [
-      "EHR"
+      "healthcare IT",
+      "health data analytics",
+      "EHR",
+      "cybersecurity"
     ],
-    "date_found": "2026-10-16",
-    "stored_at_utc": "2026-10-16T15:23:32+00:00",
-    "stored_at_local": "2026-10-16T10:23:32-05:00",
+    "date_found": "2026-10-17",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1644,11 +1676,14 @@
     "source_page_title": "ESBD",
     "url": "https://www.txsmartbuy.gov/esbd/754-TXST-2027-RFP-519-VPGOI",
     "matched_keywords": [
-      "EHR"
+      "healthcare IT",
+      "health data analytics",
+      "EHR",
+      "cybersecurity"
     ],
-    "date_found": "2026-10-16",
-    "stored_at_utc": "2026-10-16T15:23:32+00:00",
-    "stored_at_local": "2026-10-16T10:23:32-05:00",
+    "date_found": "2026-10-17",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1758,11 +1793,14 @@
     "source_page_title": "ESBD",
     "url": "https://www.txsmartbuy.gov/esbd/241859-26-01R",
     "matched_keywords": [
-      "EHR"
+      "healthcare IT",
+      "health data analytics",
+      "EHR",
+      "cybersecurity"
     ],
-    "date_found": "2026-10-16",
-    "stored_at_utc": "2026-10-16T15:23:32+00:00",
-    "stored_at_local": "2026-10-16T10:23:32-05:00",
+    "date_found": "2026-10-17",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1795,11 +1833,14 @@
     "source_page_title": "ESBD",
     "url": "https://www.txsmartbuy.gov/esbd/62",
     "matched_keywords": [
-      "EHR"
+      "healthcare IT",
+      "health data analytics",
+      "EHR",
+      "cybersecurity"
     ],
-    "date_found": "2026-10-16",
-    "stored_at_utc": "2026-10-16T15:23:32+00:00",
-    "stored_at_local": "2026-10-16T10:23:32-05:00",
+    "date_found": "2026-10-17",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -1832,11 +1873,14 @@
     "source_page_title": "ESBD",
     "url": "https://www.txsmartbuy.gov/esbd/IW266369",
     "matched_keywords": [
-      "EHR"
+      "healthcare IT",
+      "health data analytics",
+      "EHR",
+      "cybersecurity"
     ],
-    "date_found": "2026-10-16",
-    "stored_at_utc": "2026-10-16T15:23:32+00:00",
-    "stored_at_local": "2026-10-16T10:23:32-05:00",
+    "date_found": "2026-10-17",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -3689,8 +3733,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -3730,8 +3774,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -3771,8 +3815,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -3812,8 +3856,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -3853,8 +3897,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -3894,8 +3938,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -3935,8 +3979,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -3976,8 +4020,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -4017,8 +4061,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
@@ -4058,8 +4102,8 @@
       "cybersecurity"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T08:18:17+00:00",
-    "stored_at_local": "2026-10-17T03:18:17-05:00",
+    "stored_at_utc": "2026-10-17T08:43:01+00:00",
+    "stored_at_local": "2026-10-17T03:43:01-05:00",
     "detail_read_ok": true
   },
   {
