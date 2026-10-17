@@ -963,6 +963,7 @@ def sync_opportunities(spreadsheet, config, history):
             existing_ids.add(sid)
         if url:
             existing_urls.add(url)
+    
     if backfills or slot_fills:
         def col_letter(number):
             result = ""
@@ -970,22 +971,80 @@ def sync_opportunities(spreadsheet, config, history):
                 number, remainder = divmod(number - 1, 26)
                 result = chr(65 + remainder) + result
             return result
+
+        last_col = col_letter(len(header))
+
+        # Prepare all row updates for batched Google Sheets requests.
+        updates = []
+
         for row_number, merged_row in backfills:
-            last_col = col_letter(len(header))
-            sheet.update(
-                f"A{row_number}:{last_col}{row_number}",
-                [merged_row], value_input_option="RAW"
-            )
+            updates.append({
+                "range": f"A{row_number}:{last_col}{row_number}",
+                "values": [merged_row],
+            })
+
         for row_number, new_row in slot_fills:
-            last_col = col_letter(len(header))
-            sheet.update(
-                f"A{row_number}:{last_col}{row_number}",
-                [new_row], value_input_option="RAW"
-            )
+            updates.append({
+                "range": f"A{row_number}:{last_col}{row_number}",
+                "values": [new_row],
+            })
+
+        # Send up to 50 row updates per API request.
+        # Retry temporary quota/server errors with exponential backoff.
+        batch_size = 50
+
+        for start in range(0, len(updates), batch_size):
+            batch = updates[start:start + batch_size]
+
+            for attempt in range(5):
+                try:
+                    sheet.batch_update(
+                        batch,
+                        value_input_option="RAW",
+                    )
+                    print(
+                        f"Google Sheets: batch "
+                        f"{start // batch_size + 1} completed "
+                        f"({len(batch)} row updates)",
+                        flush=True,
+                    )
+                    break
+
+                except gspread.exceptions.APIError as exc:
+                    status = getattr(
+                        getattr(exc, "response", None),
+                        "status_code",
+                        None,
+                    )
+
+                    retryable = status in (429, 500, 503)
+
+                    if not retryable or attempt == 4:
+                        raise
+
+                    wait_seconds = min(60, 2 ** (attempt + 1))
+                    print(
+                        f"Google Sheets API returned HTTP {status}. "
+                        f"Retrying in {wait_seconds} seconds "
+                        f"(attempt {attempt + 2}/5).",
+                        flush=True,
+                    )
+                    time.sleep(wait_seconds)
+
         if backfills:
-            print(f"Google Sheets: backfilled {len(backfills)} existing opportunity rows", flush=True)
+            print(
+                f"Google Sheets: backfilled "
+                f"{len(backfills)} existing opportunity rows",
+                flush=True,
+            )
+
         if slot_fills:
-            print(f"Google Sheets: filled {len(slot_fills)} pre-existing blank template rows", flush=True)
+            print(
+                f"Google Sheets: filled "
+                f"{len(slot_fills)} pre-existing blank template rows",
+                flush=True,
+            )
+
 
     if additions:
         first = additions[0]
