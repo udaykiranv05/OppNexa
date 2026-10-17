@@ -840,9 +840,14 @@ def sync_opportunities(spreadsheet, config, history):
                 number, remainder = divmod(number - 1, 26)
                 result = chr(65 + remainder) + result
             return result
+        # Google Sheets does not automatically expand a worksheet's grid.
+        # Ensure the target columns exist before writing the new headers.
+        if sheet.col_count < end_col:
+            sheet.add_cols(end_col - sheet.col_count)
         sheet.update(
-            f"{col_letter(start_col)}1:{col_letter(end_col)}1",
-            [missing_headers], value_input_option="RAW"
+            range_name=f"{col_letter(start_col)}1:{col_letter(end_col)}1",
+            values=[missing_headers],
+            value_input_option="RAW",
         )
         values = sheet.get_all_values()
         header = list(values[0])
