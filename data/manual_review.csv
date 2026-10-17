@@ -1,6 +1,1 @@
-﻿Date Detected,Keyword,Solicitation ID,Official Source URL,Failure Stage,Failure Reason,Retry Status,Last Attempt
-2026-10-16T03:26:48-05:00,healthcare IT,,,Search/export,Expected one visible ESBD Search button; found 0,Pending manual review,2026-10-16T07:33:06-05:00
-2026-10-16T03:27:19-05:00,health data analytics,,,Search/export,Expected one visible ESBD Search button; found 0,Pending manual review,2026-10-16T07:33:11-05:00
-2026-10-16T03:27:49-05:00,EHR,,,Search/export,Pagination page body remained hidden,Pending manual review,2026-10-16T09:35:30-05:00
-2026-10-16T03:28:19-05:00,interoperability,,,Search/export,Expected one visible ESBD Search button; found 0,Pending manual review,2026-10-16T07:33:22-05:00
-2026-10-16T03:28:49-05:00,cybersecurity,,,Search/export,Expected one visible ESBD Search button; found 0,Pending manual review,2026-10-16T07:33:27-05:00
+
