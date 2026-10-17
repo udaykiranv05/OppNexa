@@ -823,14 +823,22 @@ def sync_opportunities(spreadsheet, config, history):
         values = [HEADERS]
 
     header = list(values[0])
-    if header[:len(CORE_HEADERS)] != CORE_HEADERS:
-        raise RuntimeError(
-            "Main sheet's first 35 headers do not match the expected order. "
-            "No opportunity rows were appended. Check row 1 before rerunning."
+
+    # Inspect the live worksheet header row instead of assuming the user's
+    # existing 35 columns are in a particular order. Preserve all existing
+    # columns and append only genuinely missing expected headers.
+    existing_header_names = {clean(name) for name in header if clean(name)}
+    missing_core_headers = [name for name in CORE_HEADERS if name not in existing_header_names]
+    if missing_core_headers:
+        print(
+            "SHEETS HEADER CHECK: missing expected core columns; appending only these: "
+            + json.dumps(missing_core_headers, ensure_ascii=False),
+            flush=True,
         )
 
-    # Append any new ESBD detail headers to the right, preserving existing rows.
-    missing_headers = [name for name in HEADERS if name not in header]
+    # Append missing core fields first, then extra ESBD detail fields. Never
+    # reorder/delete existing columns or overwrite the user's six manual fields.
+    missing_headers = [name for name in HEADERS if name not in existing_header_names]
     if missing_headers:
         start_col = len(header) + 1
         end_col = start_col + len(missing_headers) - 1
@@ -854,7 +862,17 @@ def sync_opportunities(spreadsheet, config, history):
 
     positions = {name: index for index, name in enumerate(header)}
     print(f"SHEETS TARGET: title={sheet.title!r} worksheet_id={sheet.id}", flush=True)
-    print(f"SHEETS HEADER CHECK: core={len(CORE_HEADERS)} total_headers={len(header)}", flush=True)
+    print(
+        "SHEETS HEADER CHECK: "
+        f"core_required={len(CORE_HEADERS)} total_headers={len(header)} "
+        f"headers_added={json.dumps(missing_headers, ensure_ascii=False)}",
+        flush=True,
+    )
+    print(
+        "SHEETS EXISTING HEADER ROW: "
+        + json.dumps(header, ensure_ascii=False),
+        flush=True,
+    )
     id_col = positions["Opportunity ID"]
     ref_col = positions["Solicitation / Reference No."]
     url_col = positions["Official Source URL"]
