@@ -235,8 +235,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00"
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00"
   },
   {
     "solicitation_id": "RFP-730-UofH-3154",
@@ -271,8 +271,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00"
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00"
   },
   {
     "solicitation_id": "HHS0018082",
@@ -376,8 +376,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00"
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00"
   },
   {
     "solicitation_id": "601440000053880",
@@ -407,8 +407,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00"
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00"
   },
   {
     "solicitation_id": "601440000054486",
@@ -438,8 +438,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00"
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00"
   },
   {
     "solicitation_id": "6100018900",
@@ -509,8 +509,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00"
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00"
   },
   {
     "solicitation_id": "TAMUS-ITB-27-0546",
@@ -544,8 +544,8 @@
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
     "source_page_title": "ESBD",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00"
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00"
   },
   {
     "solicitation_id": "6100019874a",
@@ -835,8 +835,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -872,8 +872,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -946,8 +946,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -983,8 +983,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -1020,8 +1020,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -1057,8 +1057,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -1094,8 +1094,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -1131,8 +1131,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -1205,8 +1205,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -1612,8 +1612,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -3573,8 +3573,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -3610,8 +3610,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -3647,8 +3647,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -3684,8 +3684,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -3721,8 +3721,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -3758,8 +3758,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -3795,8 +3795,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -3832,8 +3832,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -3869,8 +3869,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -3906,8 +3906,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -3943,8 +3943,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -3980,8 +3980,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
@@ -4017,8 +4017,8 @@
       "EHR"
     ],
     "date_found": "2026-10-17",
-    "stored_at_utc": "2026-10-17T03:57:33+00:00",
-    "stored_at_local": "2026-10-16T22:57:33-05:00",
+    "stored_at_utc": "2026-10-17T06:36:46+00:00",
+    "stored_at_local": "2026-10-17T01:36:46-05:00",
     "detail_read_ok": true
   },
   {
