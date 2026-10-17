@@ -45,12 +45,25 @@ CORE_HEADERS = [
 # Extra ESBD detail fields are appended to the right of the original 35 columns.
 # This keeps existing sheets compatible while preserving the detailed source fields.
 DETAIL_HEADERS = [
-    "Stored At (UTC)", "Stored At (America/Chicago)", "Last Modified",
-    "Solicitation Status", "Contact Name", "Contact Number", "Contact Email",
-    "Bid Response Email", "Bid Response URL", "Posting Requirement",
-    "State Agency Procurement Certification", "Class/Item Codes",
-    "Highway Districts", "Zones", "Addendum Details", "Keyword Relevance",
-    "Relevance Notes", "Detail Extraction Status", "Source Page Title",
+    "Stored At (America/Chicago)",
+    "Stored At (Asia/Kolkata)",
+    "Last Modified",
+    "Solicitation Status",
+    "Contact Name",
+    "Contact Number",
+    "Contact Email",
+    "Bid Response Email",
+    "Bid Response URL",
+    "Posting Requirement",
+    "State Agency Procurement Certification",
+    "Class/Item Codes",
+    "Highway Districts",
+    "Zones",
+    "Addendum Details",
+    "Keyword Relevance",
+    "Relevance Notes",
+    "Detail Extraction Status",
+    "Source Page Title",
 ]
 HEADERS = CORE_HEADERS + DETAIL_HEADERS
 
@@ -61,6 +74,7 @@ NEVER_AUTO_FILL = {
 }
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 CENTRAL_TZ = ZoneInfo("America/Chicago")
+INDIA_TZ = ZoneInfo("Asia/Kolkata")
 UTC_TZ = ZoneInfo("UTC")
 
 
@@ -739,7 +753,8 @@ def enrich_detail(page, record, keyword, failures):
 
 def to_opportunity_row(record):
     now_utc = datetime.now(UTC_TZ).replace(microsecond=0)
-    now_local = now_utc.astimezone(CENTRAL_TZ)
+    now_texas = now_utc.astimezone(CENTRAL_TZ)
+    now_india = now_utc.astimezone(INDIA_TZ)
     row = {header: "" for header in HEADERS}
     row.update({
         "Opportunity ID": record.get("solicitation_id", ""),
@@ -759,8 +774,12 @@ def to_opportunity_row(record):
         "Mandatory Gate (Pass / Fail / Unknown)": "Unknown",
         "Recommendation (Go / Investigate / No-Go)": "Investigate",
         "Fit Rationale": "Verify status, eligibility, requirements, and relevance against the official solicitation before deciding.",
-        "Stored At (UTC)": record.get("stored_at_utc", now_utc.isoformat()),
-        "Stored At (America/Chicago)": record.get("stored_at_local", now_local.isoformat()),
+        "Stored At (America/Chicago)": now_texas.strftime(
+    "%Y-%m-%d %I:%M:%S %p %Z"
+),
+"Stored At (Asia/Kolkata)": now_india.strftime(
+    "%Y-%m-%d %I:%M:%S %p IST"
+),
         "Last Modified": record.get("last_modified", ""),
         "Solicitation Status": record.get("status", ""),
         "Contact Name": record.get("contact_name", ""),
