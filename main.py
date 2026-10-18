@@ -1080,7 +1080,7 @@ def sync_opportunities(spreadsheet, config, history):
 
 
 def sync_manual_review(spreadsheet, config, failures):
-    name = config.get("manual_review_worksheet", "ESBD Manual Review")
+    name = config.get("manual_review_worksheet", "Manual Review")
     try:
         sheet = spreadsheet.worksheet(name)
     except gspread.WorksheetNotFound:
