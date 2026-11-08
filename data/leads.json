@@ -1269,7 +1269,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -1277,9 +1276,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -1559,7 +1558,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -1567,9 +1565,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -2330,7 +2328,7 @@
     "agency": "",
     "agency_number": "M0152",
     "posting_date": "7/23/2026",
-    "due_date": "11/6/2026",
+    "due_date": "11/20/2026",
     "due_time": "10:00 AM",
     "opportunity_type": "",
     "estimated_value": "",
@@ -2343,10 +2341,10 @@
     "bid_response_url": "https://supplierservice.sanantonio.gov/irj/portal",
     "posting_requirement": "14+ Days for Entire Solicitation Package",
     "procurement_certification": "Exempt (Attorney or Texas SmartBuy Member)",
-    "last_modified": "10/23/2026 9:08 am",
+    "last_modified": "11/6/2026 8:35 am",
     "highway_districts": "District 1, District 2, District 3, District 4, District 5, District 6, District 7, District 8, District 9, District 10, District 11, District 12, District 13, District 14, District 15, District 16, District 17, District 18, District 19, District 20, District 21, District 22, District 23, District 24, District 25 View Highway Districts",
     "zones": "Zone - 1; Zone - 2; Zone - 3; Zone - 4; Zone - 5;",
-    "addendum_details": "10/23/2026 9:08 am: Extending until November 6, 2026 10/14/2026 8:41 am: ext to 10-23 10/7/2026 8:56 am: Extended again until 10-14 9/30/2026 9:50 am: Extended to 10-7 9/23/2026 8:57 am: Extended until 9-30 9/11/2026 9:07 am: Addendum to extend closing date to September 23, 2026 at 10 am CT 9/11/2026 9:07 am: Addendum to extend closing date to September 23, 2026 at 10 am CT 9/4/2026 8:37 am: to extend until 9-11 8/28/2026 9:26 am: Extended until September 4, 2026 8/21/2026 1:33 am: Extended until 8-28 8/14/2026 9:48 am: Extended until 8/21 8/14/2026 9:47 am: Extended until 8/21 8/7/2026 9:47 am: Extension until 8/7/2026",
+    "addendum_details": "11/6/2026 8:35 am: EXTENDED UNTIL 11/20 10/23/2026 9:08 am: Extending until November 6, 2026 10/14/2026 8:41 am: ext to 10-23 10/7/2026 8:56 am: Extended again until 10-14 9/30/2026 9:50 am: Extended to 10-7 9/23/2026 8:57 am: Extended until 9-30 9/11/2026 9:07 am: Addendum to extend closing date to September 23, 2026 at 10 am CT 9/11/2026 9:07 am: Addendum to extend closing date to September 23, 2026 at 10 am CT 9/4/2026 8:37 am: to extend until 9-11 8/28/2026 9:26 am: Extended until September 4, 2026 8/21/2026 1:33 am: Extended until 8-28 8/14/2026 9:48 am: Extended until 8/21 8/14/2026 9:47 am: Extended until 8/21 8/7/2026 9:47 am: Extension until 8/7/2026",
     "keyword_relevance": "Unverified / likely unrelated",
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
@@ -2354,12 +2352,15 @@
     "url": "https://www.txsmartbuy.gov/esbd/6100018900",
     "matched_keywords": [
       "Electronic Health Record",
+      "Electronic Medical Record",
       "Health Information Exchange",
       "Health Information Technology",
       "Healthcare Information System",
+      "Clinical Information System",
       "Hospital Information System",
       "Electronic Visit Verification",
       "Medicaid Management Information System",
+      "Public Health Information System",
       "Healthcare Analytics",
       "Healthcare Interoperability",
       "Application Development",
@@ -2370,16 +2371,14 @@
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-10-26",
-    "stored_at_utc": "2026-10-26T04:05:14+00:00",
-    "stored_at_local": "2026-10-25T23:05:14-05:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -2389,7 +2388,7 @@
     "agency": "",
     "agency_number": "M0152",
     "posting_date": "10/5/2026",
-    "due_date": "10/30/2026",
+    "due_date": "11/13/2026",
     "due_time": "10:00 AM",
     "opportunity_type": "",
     "estimated_value": "",
@@ -2402,10 +2401,10 @@
     "bid_response_url": "https://supplierservice.sanantonio.gov/irj/portal",
     "posting_requirement": "14+ Days for Entire Solicitation Package",
     "procurement_certification": "Exempt (Attorney or Texas SmartBuy Member)",
-    "last_modified": "10/23/2026 10:01 am",
+    "last_modified": "11/6/2026 10:02 am",
     "highway_districts": "District 1, District 2, District 3, District 4, District 5, District 6, District 7, District 8, District 9, District 10, District 11, District 12, District 13, District 14, District 15, District 16, District 17, District 18, District 19, District 20, District 21, District 22, District 23, District 24, District 25 View Highway Districts",
     "zones": "",
-    "addendum_details": "10/22/2026 4:42 pm: Addendum No. 5 10/15/2026 9:33 am: Addendum No. 4 Synopsis 10/15/2026 9:31 am: Addendum No. 4",
+    "addendum_details": "10/30/2026 9:15 am: Addendum No. 7 10/22/2026 4:42 pm: Addendum No. 5 10/15/2026 9:33 am: Addendum No. 4 Synopsis 10/15/2026 9:31 am: Addendum No. 4",
     "keyword_relevance": "Unverified / likely unrelated",
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
@@ -2413,19 +2412,21 @@
     "url": "https://www.txsmartbuy.gov/esbd/6100019874a",
     "matched_keywords": [
       "Electronic Health Record",
+      "Electronic Medical Record",
       "Health Information Exchange",
       "Health Information Technology",
       "Healthcare Information System",
+      "Clinical Information System",
       "Hospital Information System",
       "Electronic Visit Verification",
       "Medicaid Management Information System",
+      "Public Health Information System",
       "Healthcare Analytics",
       "Healthcare Interoperability",
       "Application Development",
       "Application Modernization",
       "Data Integration",
       "API Integration",
-      "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
@@ -2436,9 +2437,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-10-26",
-    "stored_at_utc": "2026-10-26T04:05:14+00:00",
-    "stored_at_local": "2026-10-25T23:05:14-05:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -5686,9 +5687,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -5822,9 +5823,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -7643,9 +7644,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -9774,7 +9775,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -9782,9 +9782,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -12843,7 +12843,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -12851,9 +12850,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -13342,9 +13341,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -13769,16 +13768,14 @@
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -14562,7 +14559,7 @@
     "agency": "",
     "agency_number": "M0152",
     "posting_date": "10/14/2026",
-    "due_date": "11/9/2026",
+    "due_date": "11/20/2026",
     "due_time": "2:00 PM",
     "opportunity_type": "",
     "estimated_value": "",
@@ -14575,10 +14572,10 @@
     "bid_response_url": "https://supplierservice.sanantonio.gov/irj/portal",
     "posting_requirement": "14+ Days for Entire Solicitation Package",
     "procurement_certification": "Exempt (Attorney or Texas SmartBuy Member)",
-    "last_modified": "10/23/2026 12:33 pm",
+    "last_modified": "11/6/2026 10:47 am",
     "highway_districts": "District 1, District 2, District 3, District 4, District 5, District 6, District 7, District 8, District 9, District 10, District 11, District 12, District 13, District 14, District 15, District 16, District 17, District 18, District 19, District 20, District 21, District 22, District 23, District 24, District 25 View Highway Districts",
     "zones": "",
-    "addendum_details": "10/23/2026 12:33 pm: Extending until November 9, 2026",
+    "addendum_details": "11/6/2026 10:47 am: Bid opening date has been extended to November 20, 2026. 10/23/2026 12:33 pm: Extending until November 9, 2026",
     "keyword_relevance": "Unverified / likely unrelated",
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
@@ -14586,19 +14583,21 @@
     "url": "https://www.txsmartbuy.gov/esbd/6100019757",
     "matched_keywords": [
       "Electronic Health Record",
+      "Electronic Medical Record",
       "Health Information Exchange",
       "Health Information Technology",
       "Healthcare Information System",
+      "Clinical Information System",
       "Hospital Information System",
       "Electronic Visit Verification",
       "Medicaid Management Information System",
+      "Public Health Information System",
       "Healthcare Analytics",
       "Healthcare Interoperability",
       "Application Development",
       "Application Modernization",
       "Data Integration",
       "API Integration",
-      "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
@@ -14609,9 +14608,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-10-26",
-    "stored_at_utc": "2026-10-26T04:05:14+00:00",
-    "stored_at_local": "2026-10-25T23:05:14-05:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -18031,16 +18030,14 @@
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -18328,7 +18325,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -18336,9 +18332,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -21405,9 +21401,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -22744,9 +22740,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -25560,7 +25556,7 @@
     "agency": "",
     "agency_number": "M0152",
     "posting_date": "10/2/2026",
-    "due_date": "11/6/2026",
+    "due_date": "11/10/2026",
     "due_time": "2:00 PM",
     "opportunity_type": "",
     "estimated_value": "",
@@ -25573,10 +25569,10 @@
     "bid_response_url": "https://www.civcastusa.com/",
     "posting_requirement": "21+ Days for Solicitation Notice",
     "procurement_certification": "Exempt (Attorney or Texas SmartBuy Member)",
-    "last_modified": "11/5/2026 2:01 pm",
+    "last_modified": "11/6/2026 8:28 am",
     "highway_districts": "District 1, District 2, District 3, District 4, District 5, District 6, District 7, District 8, District 9, District 10, District 11, District 12, District 13, District 14, District 15, District 16, District 17, District 18, District 19, District 20, District 21, District 22, District 23, District 24, District 25 View Highway Districts",
     "zones": "Zone - 1; Zone - 2; Zone - 3; Zone - 4; Zone - 5;",
-    "addendum_details": "11/2/2026 8:11 am: Addendum No. 4",
+    "addendum_details": "11/6/2026 8:27 am: Addendum No. 5 11/2/2026 8:11 am: Addendum No. 4",
     "keyword_relevance": "Unverified / likely unrelated",
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
@@ -25603,16 +25599,14 @@
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -25956,9 +25950,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -28807,35 +28801,16 @@
     "url": "https://www.txsmartbuy.gov/esbd/IW270522",
     "matched_keywords": [
       "Electronic Health Record",
-      "Electronic Medical Record",
-      "Health Information Exchange",
-      "Health Information Technology",
-      "Healthcare Information System",
-      "Clinical Information System",
-      "Hospital Information System",
-      "Electronic Visit Verification",
-      "Medicaid Management Information System",
-      "Public Health Information System",
-      "Healthcare Analytics",
-      "Healthcare Interoperability",
-      "Application Development",
-      "Application Modernization",
-      "Data Integration",
       "API Integration",
       "Cloud Migration",
-      "Managed Security Services",
-      "Healthcare Cybersecurity",
       "IT Staff Augmentation",
       "Artificial Intelligence",
-      "Machine Learning",
-      "Texas Health and Human Services Commission",
-      "Texas Department of State Health Services",
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -29188,16 +29163,14 @@
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -31501,16 +31474,14 @@
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -31979,16 +31950,14 @@
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -32134,7 +32103,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -32142,9 +32110,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -32319,35 +32287,16 @@
     "url": "https://www.txsmartbuy.gov/esbd/601440000054772",
     "matched_keywords": [
       "Electronic Health Record",
-      "Electronic Medical Record",
-      "Health Information Exchange",
-      "Health Information Technology",
-      "Healthcare Information System",
-      "Clinical Information System",
-      "Hospital Information System",
-      "Electronic Visit Verification",
-      "Medicaid Management Information System",
-      "Public Health Information System",
-      "Healthcare Analytics",
-      "Healthcare Interoperability",
-      "Application Development",
-      "Application Modernization",
-      "Data Integration",
       "API Integration",
       "Cloud Migration",
-      "Managed Security Services",
-      "Healthcare Cybersecurity",
       "IT Staff Augmentation",
       "Artificial Intelligence",
-      "Machine Learning",
-      "Texas Health and Human Services Commission",
-      "Texas Department of State Health Services",
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -32462,16 +32411,14 @@
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -32524,16 +32471,14 @@
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -32648,16 +32593,14 @@
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -34215,9 +34158,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -34277,9 +34220,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -34904,7 +34847,7 @@
   {
     "solicitation_id": "23-04203-10A",
     "title": "2027 Task Order Contract for Street Rehabilitation Package 10 Flatwork",
-    "status": "Posted",
+    "status": "Addendum Posted",
     "agency": "",
     "agency_number": "M0152",
     "posting_date": "10/30/2026",
@@ -34913,7 +34856,7 @@
     "opportunity_type": "",
     "estimated_value": "",
     "class_item_codes": "57076-Steel, Reinforcing, Bars And Rods; 75070-Ready; 79050-Sod, Grass; 91347-Construction, Sidewalk And Driveway (Includes Pedestrian And Handicap Ramps); 96239-Hauling Services; 96880-Traffic Sign Installation And/Or Removal Services; 98815-Fence Installation, Maintenance And Repair;",
-    "description": "Removaland replacement or installation of concrete curbs, sidewalks, driveways,concrete retaining walls combination type, curb ramps, removing and relocatingmailboxes, topsoil, sodding, tree pruning, removal and/or replacement, signrelocation, door hangers, adjusting meter boxes, valve boxes and manholes, andany other items required due to the site conditions to accomplish the projectscope.",
+    "description": "Removal and replacement or installation of concrete curbs, sidewalks, driveways, concrete retaining walls combination-type, curb ramps, removing and relocating mailboxes, topsoil, sodding, tree pruning, removal and/or replacement, sign relocation, door hangers, adjusting meter boxes, valve boxes and manholes, and any other items required due to the site conditions to accomplish the project scope.",
     "contact_name": "Peter Duro",
     "contact_number": "(210) 207-7954",
     "contact_email": "peter.durojr@sanantonio.gov",
@@ -34921,10 +34864,10 @@
     "bid_response_url": "https://www.civcastusa.com/",
     "posting_requirement": "21+ Days for Solicitation Notice",
     "procurement_certification": "Exempt (Attorney or Texas SmartBuy Member)",
-    "last_modified": "10/30/2026 1:10 pm",
+    "last_modified": "11/6/2026 8:47 am",
     "highway_districts": "District 1, District 2, District 3, District 4, District 5, District 6, District 7, District 8, District 9, District 10, District 11, District 12, District 13, District 14, District 15, District 16, District 17, District 18, District 19, District 20, District 21, District 22, District 23, District 24, District 25 View Highway Districts",
     "zones": "Zone - 1; Zone - 2; Zone - 3; Zone - 4; Zone - 5; Attachment URL: https://www.civcastusa.com/",
-    "addendum_details": "",
+    "addendum_details": "11/6/2026 8:47 am: Changes to Description only.",
     "keyword_relevance": "Unverified / likely unrelated",
     "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
     "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
@@ -34947,7 +34890,6 @@
       "Application Modernization",
       "Data Integration",
       "API Integration",
-      "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
@@ -34958,9 +34900,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-02",
-    "stored_at_utc": "2026-11-02T04:26:54+00:00",
-    "stored_at_local": "2026-11-01T22:26:54-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -35615,7 +35557,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -35623,9 +35564,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -36283,16 +36224,16 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
+      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -42215,16 +42156,14 @@
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -42338,16 +42277,14 @@
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -42400,16 +42337,14 @@
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -43221,7 +43156,7 @@
   {
     "solicitation_id": "0007577",
     "title": "PERMIAN BASIN BEACON ROADWAYS AND INFRASTRUCTURE PROJECT",
-    "status": "Posted",
+    "status": "Addendum Posted",
     "agency": "",
     "agency_number": "303",
     "posting_date": "11/5/2026",
@@ -43238,7 +43173,7 @@
     "bid_response_url": "https://procurement.opengov.com/portal/tfctexas/projects/323694",
     "posting_requirement": "21+ Days for Solicitation Notice",
     "procurement_certification": "Dual CTCD/CTCM certification",
-    "last_modified": "11/5/2026 10:08 am",
+    "last_modified": "11/6/2026 10:48 am",
     "highway_districts": "District 3, District 4, District 5, District 6, District 7, District 8, District 14, District 15, District 22, District 23, District 24, View Highway Districts Attachment URL: https://procurement.opengov.com/portal/tfctexas/projects/323694",
     "zones": "",
     "addendum_details": "",
@@ -43260,10 +43195,10 @@
       "Public Health Information System",
       "Healthcare Analytics",
       "Healthcare Interoperability",
+      "Application Development",
       "Application Modernization",
       "Data Integration",
       "API Integration",
-      "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
@@ -43274,9 +43209,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-06",
-    "stored_at_utc": "2026-11-06T04:23:41+00:00",
-    "stored_at_local": "2026-11-05T22:23:41-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -43950,9 +43885,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -44012,9 +43947,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -44074,9 +44009,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -44136,9 +44071,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -44198,9 +44133,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -44260,9 +44195,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -44322,9 +44257,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -44384,9 +44319,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -44446,9 +44381,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -44744,7 +44679,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -44752,9 +44686,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -44806,7 +44740,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -44814,9 +44747,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -44868,7 +44801,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -44876,9 +44808,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -44930,7 +44862,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -44938,9 +44869,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -44992,7 +44923,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -45000,9 +44930,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45054,7 +44984,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -45062,9 +44991,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45116,7 +45045,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -45124,9 +45052,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45178,7 +45106,6 @@
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
-      "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
@@ -45186,9 +45113,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45247,9 +45174,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45308,9 +45235,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45369,9 +45296,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45430,9 +45357,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45491,9 +45418,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45552,9 +45479,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45613,9 +45540,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45674,9 +45601,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45735,9 +45662,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45796,9 +45723,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45857,9 +45784,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45905,22 +45832,21 @@
       "Healthcare Analytics",
       "Healthcare Interoperability",
       "Application Development",
+      "Application Modernization",
       "Data Integration",
       "API Integration",
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -45966,22 +45892,21 @@
       "Healthcare Analytics",
       "Healthcare Interoperability",
       "Application Development",
+      "Application Modernization",
       "Data Integration",
       "API Integration",
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -46027,22 +45952,21 @@
       "Healthcare Analytics",
       "Healthcare Interoperability",
       "Application Development",
+      "Application Modernization",
       "Data Integration",
       "API Integration",
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   },
   {
@@ -46088,22 +46012,21 @@
       "Healthcare Analytics",
       "Healthcare Interoperability",
       "Application Development",
+      "Application Modernization",
       "Data Integration",
       "API Integration",
       "Cloud Migration",
       "Managed Security Services",
       "Healthcare Cybersecurity",
       "IT Staff Augmentation",
-      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-07",
-    "stored_at_utc": "2026-11-07T04:17:18+00:00",
-    "stored_at_local": "2026-11-06T22:17:18-06:00",
+    "date_found": "2026-11-08",
+    "stored_at_utc": "2026-11-08T04:20:43+00:00",
+    "stored_at_local": "2026-11-07T22:20:43-06:00",
     "detail_read_ok": true
   }
 ]
