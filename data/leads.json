@@ -29146,12 +29146,11 @@
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
-      "Integrated Eligibility"
+      "Texas Medicaid"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -33784,7 +33783,7 @@
   {
     "solicitation_id": "NTB2605SEMNL00077",
     "title": "TxDOT Aviation Division- Notice to Bidders",
-    "status": "Posted",
+    "status": "Addendum Posted",
     "agency": "",
     "agency_number": "601",
     "posting_date": "10/29/2026",
@@ -33801,7 +33800,7 @@
     "bid_response_url": "",
     "posting_requirement": "21+ Days for Solicitation Notice",
     "procurement_certification": "",
-    "last_modified": "10/29/2026 11:01 am",
+    "last_modified": "11/20/2026 2:01 pm",
     "highway_districts": "",
     "zones": "",
     "addendum_details": "",
@@ -33812,23 +33811,34 @@
     "url": "https://www.txsmartbuy.gov/esbd/NTB2605SEMNL00077",
     "matched_keywords": [
       "Electronic Health Record",
+      "Electronic Medical Record",
+      "Health Information Exchange",
+      "Health Information Technology",
+      "Healthcare Information System",
+      "Clinical Information System",
       "Hospital Information System",
       "Electronic Visit Verification",
       "Medicaid Management Information System",
       "Public Health Information System",
+      "Healthcare Analytics",
+      "Healthcare Interoperability",
       "Application Development",
       "Application Modernization",
       "Data Integration",
+      "API Integration",
       "Cloud Migration",
       "Managed Security Services",
+      "Healthcare Cybersecurity",
+      "IT Staff Augmentation",
+      "Artificial Intelligence",
       "Machine Learning",
       "Texas Health and Human Services Commission",
-      "Texas Medicaid",
-      "Integrated Eligibility"
+      "Texas Department of State Health Services",
+      "Texas Medicaid"
     ],
-    "date_found": "2026-10-30",
-    "stored_at_utc": "2026-10-30T04:14:40+00:00",
-    "stored_at_local": "2026-10-29T23:14:40-05:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -39493,9 +39503,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -49400,9 +49410,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -50365,7 +50375,6 @@
     "url": "https://www.txsmartbuy.gov/esbd/HHS0018147",
     "matched_keywords": [
       "Electronic Health Record",
-      "Electronic Medical Record",
       "Health Information Exchange",
       "Health Information Technology",
       "Healthcare Information System",
@@ -50391,9 +50400,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -51707,9 +51716,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -52526,7 +52535,6 @@
       "Hospital Information System",
       "Electronic Visit Verification",
       "Medicaid Management Information System",
-      "Public Health Information System",
       "Healthcare Analytics",
       "Healthcare Interoperability",
       "Application Development",
@@ -52535,18 +52543,15 @@
       "API Integration",
       "Cloud Migration",
       "Managed Security Services",
-      "Healthcare Cybersecurity",
       "IT Staff Augmentation",
       "Artificial Intelligence",
-      "Machine Learning",
-      "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -58715,7 +58720,7 @@
   {
     "solicitation_id": "NTB2605MULES00068",
     "title": "TxDOT Aviation Division- Notice to Bidders",
-    "status": "Posted",
+    "status": "Addendum Posted",
     "agency": "",
     "agency_number": "601",
     "posting_date": "11/18/2026",
@@ -58732,7 +58737,7 @@
     "bid_response_url": "",
     "posting_requirement": "21+ Days for Solicitation Notice",
     "procurement_certification": "",
-    "last_modified": "11/18/2026 12:01 pm",
+    "last_modified": "11/20/2026 2:01 pm",
     "highway_districts": "",
     "zones": "",
     "addendum_details": "",
@@ -58764,13 +58769,13 @@
       "IT Staff Augmentation",
       "Artificial Intelligence",
       "Machine Learning",
+      "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
-      "Integrated Eligibility"
+      "Texas Medicaid"
     ],
-    "date_found": "2026-11-19",
-    "stored_at_utc": "2026-11-19T11:58:48+00:00",
-    "stored_at_local": "2026-11-19T05:58:48-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -60534,9 +60539,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -60596,9 +60601,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -60658,9 +60663,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -60720,9 +60725,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -60782,9 +60787,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -60844,9 +60849,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -60906,9 +60911,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -60968,9 +60973,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -61030,9 +61035,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -61092,9 +61097,9 @@
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -61136,7 +61141,6 @@
       "Hospital Information System",
       "Electronic Visit Verification",
       "Medicaid Management Information System",
-      "Public Health Information System",
       "Healthcare Analytics",
       "Healthcare Interoperability",
       "Application Development",
@@ -61145,18 +61149,15 @@
       "API Integration",
       "Cloud Migration",
       "Managed Security Services",
-      "Healthcare Cybersecurity",
       "IT Staff Augmentation",
       "Artificial Intelligence",
-      "Machine Learning",
-      "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -61198,7 +61199,6 @@
       "Hospital Information System",
       "Electronic Visit Verification",
       "Medicaid Management Information System",
-      "Public Health Information System",
       "Healthcare Analytics",
       "Healthcare Interoperability",
       "Application Development",
@@ -61207,18 +61207,15 @@
       "API Integration",
       "Cloud Migration",
       "Managed Security Services",
-      "Healthcare Cybersecurity",
       "IT Staff Augmentation",
       "Artificial Intelligence",
-      "Machine Learning",
-      "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -61260,7 +61257,6 @@
       "Hospital Information System",
       "Electronic Visit Verification",
       "Medicaid Management Information System",
-      "Public Health Information System",
       "Healthcare Analytics",
       "Healthcare Interoperability",
       "Application Development",
@@ -61269,18 +61265,15 @@
       "API Integration",
       "Cloud Migration",
       "Managed Security Services",
-      "Healthcare Cybersecurity",
       "IT Staff Augmentation",
       "Artificial Intelligence",
-      "Machine Learning",
-      "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -61322,7 +61315,6 @@
       "Hospital Information System",
       "Electronic Visit Verification",
       "Medicaid Management Information System",
-      "Public Health Information System",
       "Healthcare Analytics",
       "Healthcare Interoperability",
       "Application Development",
@@ -61331,18 +61323,15 @@
       "API Integration",
       "Cloud Migration",
       "Managed Security Services",
-      "Healthcare Cybersecurity",
       "IT Staff Augmentation",
       "Artificial Intelligence",
-      "Machine Learning",
-      "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
       "Texas Medicaid",
       "Integrated Eligibility"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -61399,12 +61388,11 @@
       "Machine Learning",
       "Texas Health and Human Services Commission",
       "Texas Department of State Health Services",
-      "Texas Medicaid",
-      "Integrated Eligibility"
+      "Texas Medicaid"
     ],
-    "date_found": "2026-11-21",
-    "stored_at_utc": "2026-11-21T11:33:09+00:00",
-    "stored_at_local": "2026-11-21T05:33:09-06:00",
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   },
   {
@@ -61797,6 +61785,68 @@
     "date_found": "2026-11-21",
     "stored_at_utc": "2026-11-21T11:35:51+00:00",
     "stored_at_local": "2026-11-21T05:35:51-06:00",
+    "detail_read_ok": true
+  },
+  {
+    "solicitation_id": "455-27-1003",
+    "title": "SUPPLEMENTAL WELL PLUGGING & RELATED SERVICES",
+    "status": "Addendum Posted",
+    "agency": "",
+    "agency_number": "455",
+    "posting_date": "11/21/2026",
+    "due_date": "12/7/2026",
+    "due_time": "2:00 PM",
+    "opportunity_type": "",
+    "estimated_value": "",
+    "class_item_codes": "15012-Cement, Concrete, Lime, Plaster Mixes, Retarder and Setting Compounds, Sacked, LTL Quantities, (See Class 750 for Bulk Cement, Concrete and Lime); 75042-Drilling Mud; 75077-Sand And Gravel; 79020-Grass Seeds; 90975-Site Clean; 96239-Hauling Services; 96296-Well Services (Including Oil, Gas, And Water): Drilling, Plugging, Consulting, Maintenance, Repair, Etc.; 97182-Toilets, Portable, Rental Or Lease; 97773-Toilets And Showers, Portable, Rental Or Lease;",
+    "description": "In accordance with applicable provisions of Texas Government Code Chapters 2155 and 2156, Subchapter E, the Railroad Commission of Texas (RRC) invites qualified entities to submit responses to RFQ No. 455-27-1003 for Supplemental Well Plugging and Related Services. Responses must comply with all terms, conditions, specifications, and requirements outlined in the Solicitation and Contract Documents. PROPOSAL SUBMISSION DEADLINE: MONDAY, DECEMBER 7, 2026, AT 2:00 P.M. CT SOLICITATION DOCUMENTS SCOPE OF SERVICES The RRC seeks qualified contractors to provide Supplemental Well Plugging and Related Services within RRC Oil and Gas Division Districts 3 (Houston), 5 and 6 (Kilgore), and 8 (Midland), as identified in RFQ Attachment 1, Appendix A. Services include, but are not limited to, plugging or re-plugging abandoned oil and gas wells and saltwater disposal wells, including all labor, materials, equipment, tools, incidentals, and services necessary to perform the work as directed by the RRC. All work must comply with applicable federal, state, and local laws, regulations, ordinances, RRC Statewide Rules, the Statement of Services, applicable Work Orders, and all Contract terms and conditions. Refer to RFQ Attachment 1: Statement of Services for detailed requirements. ELIGIBILITY REQUIREMENTS – NEW CONTRACTORS ONLY This solicitation is intended exclusively for new supplemental well-plugging contractors that do not currently hold an active RRC contract for these services. Contractors holding an active RRC contract for the same services are not eligible to respond and SHALL NOT be considered for award. The purpose of this solicitation is to expand the pool of qualified contractors eligible to compete for supplemental well-plugging work within the designated RRC districts. RESPONSE REQUIREMENTS AND EVALUATION Respondents must carefully review the solicitation in its entirety and submit all required documentation demonstrating their qualifications and ability to perform the requested services. Selection for Contract award will be based on demonstrated competence, qualifications, credentials, and the evaluation criteria outlined in: Section A.7: Evaluation of the Proposal Attachment 3: Respondent’s Qualifications Statement Failure to submit all mandatory information and documentation required by this solicitation SHALL result in disqualification from consideration for award. Selected Respondents shall be bound by the terms and conditions of the solicitation, the finalized RRC Contract (Attachment 6: Sample RRC Contract), and any applicable Work Orders. Contractors must comply with all applicable licensing, certification, permitting, and regulatory requirements. CONTRACT AWARDS The RRC reserves the right to award multiple Contracts resulting from this solicitation. Contracts shall be nonexclusive, and the RRC may obtain similar services from other sources during the Contract term. A Contract awarded under this solicitation shall have no guaranteed monetary value and does not guarantee the issuance of any Work Orders. An award under this solicitation does not prevent a Respondent from participating in future RRC project-specific solicitations for Supplemental Well Plugging and Related Services. VETHUB SUBCONTRACTING PLAN (HSP) – COURTESY PRE-SCREENING REVIEW The RRC is offering a courtesy pre-screening review of Respondents’ VetHUB Subcontracting Plan (HSP) documents before the proposal submission deadline. Respondents are strongly encouraged to take advantage of this opportunity to obtain guidance on completing their HSP documentation. For questions or assistance, contact HUB@RRC.TEXAS.GOV. IMPORTANT: Refer to Table 2: Schedule of Events in RFQ No. 455-27-1003 for VetHUB courtesy review dates and deadlines. PROPOSAL SUBMISSION DEADLINE Monday, December 7, 2026, at 2:00 p.m. CT Responses must be submitted via email to the RRC Contract Management Section in accordance with the solicitation instructions.",
+    "contact_name": "Jesse Herrera",
+    "contact_number": "(512) 463-6736",
+    "contact_email": "jesse.herrera@rrc.texas.gov",
+    "bid_response_email": "jesse.herrera@rrc.texas.gov",
+    "bid_response_url": "",
+    "posting_requirement": "14+ Days for Entire Solicitation Package",
+    "procurement_certification": "Dual CTCD/CTCM certification",
+    "last_modified": "11/21/2026 3:21 pm",
+    "highway_districts": "",
+    "zones": "",
+    "addendum_details": "11/21/2026 3:21 pm: ADDENDUM NO.1 11/21/2026 3:09 pm: ADDENDUM NO.1 11/21/2026 2:52 pm: ADDENDUM NO.1",
+    "keyword_relevance": "Unverified / likely unrelated",
+    "relevance_notes": "Search result was returned for a configured keyword, but title/description does not independently confirm healthcare IT relevance. Review manually.",
+    "detail_extraction_status": "Completed; some fields may be unavailable on the source page",
+    "source_page_title": "ESBD",
+    "url": "https://www.txsmartbuy.gov/esbd/455-27-1003",
+    "matched_keywords": [
+      "Electronic Health Record",
+      "Electronic Medical Record",
+      "Health Information Exchange",
+      "Health Information Technology",
+      "Healthcare Information System",
+      "Clinical Information System",
+      "Hospital Information System",
+      "Electronic Visit Verification",
+      "Medicaid Management Information System",
+      "Public Health Information System",
+      "Healthcare Analytics",
+      "Healthcare Interoperability",
+      "Application Development",
+      "Application Modernization",
+      "Data Integration",
+      "API Integration",
+      "Cloud Migration",
+      "Managed Security Services",
+      "Healthcare Cybersecurity",
+      "IT Staff Augmentation",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Texas Health and Human Services Commission",
+      "Texas Department of State Health Services",
+      "Texas Medicaid",
+      "Integrated Eligibility"
+    ],
+    "date_found": "2026-11-22",
+    "stored_at_utc": "2026-11-22T11:47:09+00:00",
+    "stored_at_local": "2026-11-22T05:47:09-06:00",
     "detail_read_ok": true
   }
 ]
